@@ -1,12 +1,12 @@
-# (c) Karsten Reincke, Frankfurt am Main, Germany, 2011 ff
-# This file is licensed under the Creative Commons Attribution 3.0 Germany
-# for details see LICENSE in the top directory
+# This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
+# https://www.fodina.de/lrt4cs] that is distributed under the terms
+# of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
 
 #LATEX=latex
 LATEX=pdflatex
 
 AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log bcf
-RES_EXTS=ps pdf 
+RES_EXTS=ps pdf
 SUB_DIRS=cfg bib
 T=CH
 
@@ -16,18 +16,18 @@ default:  hwbiber.pdf
 help:
 	echo "make | make YOURFILE.pdf"
 
-	
-.SUFFIXES: .tex .dvi .ps .pdf .rtf 
+
+.SUFFIXES: .tex .dvi .ps .pdf .rtf
 
 .tex.pdf:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
+	@ echo "### `date +'%Y%m%dT%H%M%S'`"
 	@ echo "### converting $< to $@"
-	@ $(LATEX) $< 
+	@ $(LATEX) $<
 	@ biber `basename $< .tex`
 	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
-	@ $(LATEX) $< 
-	@ $(LATEX) $< 
-	@ $(LATEX) $< 
+	@ $(LATEX) $<
+	@ $(LATEX) $<
+	@ $(LATEX) $<
 ifneq ($(LATEX),pdflatex)
 	@ echo "### converting DVI to PostScript"
 	@ dvips $<
@@ -38,17 +38,17 @@ endif
 	@ make clearAuxFiles
 
 .tex.dvi:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
+	@ echo "### `date +'%Y%m%dT%H%M%S'`"
 	@ echo "### converting $< to $@"
-	@ latex $< 
+	@ latex $<
 	@ bibtex `basename $< .tex`
 	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
-	@ latex $< 
-	@ latex $< 
-	@ latex $< 
+	@ latex $<
+	@ latex $<
+	@ latex $<
 
 .dvi.ps:
-	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
+	@ echo "### `date +'%Y%m%dT%H%M%S'`"
 	@ echo "### converting $< to $@"
 	@ dvips $<
 

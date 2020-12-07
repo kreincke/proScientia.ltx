@@ -1,4 +1,4 @@
-# lrt4cs : LaTeX based Research Templates for Classical Scholars
+# lrt4cs
 
 
 <p align="center">
@@ -8,34 +8,35 @@
 </p>
 
 <p align="center">
-  <a href="#purpose">Purpose</a> •
-  <a href="#use">Use</a> •
-  <a href="#structure">Structure</a> •
-  <a href="#prerequisites">Prerequisites</a> •
-  <a href="#documentation">Documentation</a> •
-  <a href="#contributions">Contributors</a> •
+  <a href="#use">Use</a>  
+  <a href="#structure">Structure</a>  
+  <a href="#prerequisites">Prerequisites</a>  
+  <a href="#documentation">Documentation</a>  
+  <a href="#contributions">Contributors</a>  
   <a href="#licensing">Licensing</a>
 </p>
 
-## Purpose
-
-***lrt4cs*** stands for **L**aTeX based **R**esearch **T**emplates **for** **C**lassical **S**cholars. It offers a set of configuration- and template-files that allow scholars to do humanities research work on the base of *LaTeX*, *Biber*, and *Jabref*. The visible result of these tools, their configuration and their content files follow the style of (German) classical philology, German studies and (German) history.
+***lrt4cs*** stands for **L**aTeX based **R**esearch **T**emplates **for** **C**lassical **S**cholars. It offers a set of configuration- and template-files that allow scholars to do humanities research work on the base of *LaTeX*, *BibLaTeX*, *Biber*, and *Jabref*. The visible result of these tools, the respective configuration files and content files follow the style of (German) classical philology, German studies and (German) history.
 
 ## Use
 
-These are steps for setting up and using ***lrt4cs*** successfully:
+For setting up and using ***lrt4cs*** successfully:
 
-1. Clone the ***lrt4cs*** repository `git clone https://github.com/kreincke/lrt4cs`
+1. Clone the ***lrt4cs*** repository `git clone https://github.com/kreincke/lrt4cs` (or download and extract the respective tarball)
 
 2. Select a project identifier *YOURPRJ* that does not contain blanks or slashes.
 
-3. `acquire.sh YOURPRJ [de|en]` :- integrates the string *YOURPRJ* into the files / names that need it, moves the files that do not match the selected localization identifier and all *.git*-files to *trash*
+3. Open a shell, change into the ***lrt4cs*** directory and execute the following commands
 
-4. `make YOUR-PRJ.pdf` :-
+  1. `acquire.sh YOURPRJ [de|en]` = integrates the string *YOURPRJ* into the files needing it, moves the files that do not match the selected localization identifier and all *.git*-files to *trash*
 
-5. `make tools/demo.pdf`
+  2. `make YOUR-PRJ.pdf` = verifies that your system is running
 
-6. `make clean`
+  3. `make tools/demo.pdf` = showcases the features of ***lrt4cs***
+
+  4. `make dclean` = deletes all derived files
+
+4. Edit
 
 7. Edit / update the file *tools/search.tex* in accordance with your needs.
 
@@ -46,7 +47,8 @@ These are steps for setting up and using ***lrt4cs*** successfully:
 9. Do your library research work as you planned it in *tools/search.tex*:
 
   - incorporate the bibliographic data into *bib/lit.main.bib* by using *jabref* or any other text editor
-  - create respective excerpts by copying *excerpt/excerpt-tpl.tex* to *excerpt/Bibtexkey.tex*
+  - in case of web documents download the pdf files as *references/BIBTEXKEY.pdf*
+  - create respective excerpts by copying *excerpt/excerpt-tpl.tex* to *excerpt/BIBTEXKEY.tex*
 
 10. Create your own scientific work by editing *YOUR-PRJ-NAME.tex*, create snippets by copying *snippets/inc.snippet-tpl.tex* to *snippets/inc.YOURCHOICE.tex* and editing it, integrate the snippets by using the LaTeX command `\input{snippets/inc.YOURCHOICE.tex}`
 
@@ -92,6 +94,7 @@ Finally, ***lrt4cs*** contains
   * BibLatex : [https://ctan.org/pkg/biblatex](https://ctan.org/pkg/biblatex)
   * Biber : [https://github.com/plk/biber](https://github.com/plk/biber)
   * biblatex-dw [https://ctan.org/pkg/biblatex-dw](https://ctan.org/pkg/biblatex-dw)
+  * Koma-Script : [https://www.ctan.org/pkg/koma-script](https://www.ctan.org/pkg/koma-script)
 * bash
 * make
 
