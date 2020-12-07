@@ -58,12 +58,14 @@
 \addspace\bibstring{and}\space}%
 \renewcommand*{\citerevsdnamedelim}{\addspace}
 
-% biblatex-dw does not print 'ders.' / 'dies.' in row cites of the same book
-% Additionally, it does not know the diffrence between the same page of
-% of the same work and a different page of the same work quoted before.
+% biblatex-dw does not print 'ders.' / 'dies.' in a row of cites quoting
+% the same book. Additionally, it does not know the diffrence between the 
+% same page of of the same work and a different page of the same work 
+% quoted before.
 %
-% as soon as biblatex 3.15 is offered by UBUNTU use \bibncpstring[\mkibid]{ibidem}
-% instaed of inserting the German string literally as this hack does:
+% As soon as biblatex 3.15 is offered by UBUNTU 
+% use \bibncpstring[\mkibid]{ibidem} instaed of inserting the 
+% German string literally as this hack does:
 \renewbibmacro*{cite:ibid}{%
 {\ifthenelse{\ifloccit}
   {\printtext[bibhyperref]{\usebibmacro{cite:idem} \mkibid{ebda}}%

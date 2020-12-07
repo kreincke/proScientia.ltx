@@ -12,6 +12,7 @@
   <a href="#purpose">Purpose</a> •
   <a href="#use">Use</a> •
   <a href="#structure">Structure</a> •
+  <a href="#prerequisites">Prerequisites</a> •
   <a href="#documentation">Documentation</a> •
   <a href="#contributions">Contributors</a> •
   <a href="#licensing">Licensing</a>
@@ -83,6 +84,17 @@ Finally, ***lrt4cs*** contains
 * `bib/ncl.journals.tex`(= stores journal specific abbreviations, can be edited by any text editor, is added by the LaTeX command `\input{bib/ncl.journals.tex}`
 * `snippet/inc.snippet-tpl.tex` (= a template for snippets that can be included into the main work)
 * `excerpts/excerpt-tpl.tex` (= a template for excerpting secondary literature that has already been made known to `bib/literature.bib`   )
+
+## Prerequisites
+
+*lrt4cs* requires the installation of
+
+* a LaTeX distribution with different packages / programs which should be part of your TeX-Distribution:
+  * BibLatex : [https://ctan.org/pkg/biblatex](https://ctan.org/pkg/biblatex)
+  * Biber : [https://github.com/plk/biber](https://github.com/plk/biber)
+  * biblatex-dw [https://ctan.org/pkg/biblatex-dw](https://ctan.org/pkg/biblatex-dw)
+* bash
+* make
 
 ## Documentation
 
