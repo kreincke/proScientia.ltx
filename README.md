@@ -1,6 +1,5 @@
-<h1 align="center">
-    lrt4cs = [L]aTeX based [R]esearch [T]emplates for [C]lassical [S]cholars
-</h1>
+# lrt4cs : LaTeX based Research Templates for Classical Scholars
+
 
 <p align="center">
     <a href="https://github.com/kreincke/lrt4cs/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/kreincke/lrt4cs?style=flat"></a>
