@@ -5,13 +5,12 @@
 #LATEX=latex
 LATEX=pdflatex
 
-AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log bcf
+AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log bcf xml
 RES_EXTS=ps pdf
-SUB_DIRS=cfg bib
-T=CH
 
+SUBDIRS=snippets tools
 
-default:  hwbiber.pdf
+default:  lrt4cs-de.pdf
 
 help:
 	echo "make | make YOURFILE.pdf"
@@ -34,7 +33,7 @@ ifneq ($(LATEX),pdflatex)
 	@ echo "### converting PostScript to PDF"
 	@ ps2pdf $<
 endif
-	@ mv $@ `basename $@ .pdf`-`cat inc.rel.tex`.pdf
+	@ mv $@ `basename $@ .pdf`-`cat cfg/inc.rel.tex`.pdf
 	@ make clearAuxFiles
 
 .tex.dvi:
@@ -55,15 +54,16 @@ endif
 clearAuxFiles:
 	$(foreach EXT, ${AUX_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
 
+clear:	clearAuxFiles
+
 clean:	clearAuxFiles
 	$(foreach EXT, ${RES_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
 
-clear:	clean
+dclear: clear
+	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clear && cd ..;)
 
-dclean:
-	echo '#!/bin/bash' > xc.sh
-	echo FEXT="\"`echo $(AUX_EXTS) | sed 's/ /|/g'`\"" >> xc.sh
-	echo 'find . | egrep "\.($$FEXT)" | while read f; do echo "deleting $$f"; rm $$f; done' >> xc.sh
-	chmod 755 xc.sh
-	./xc.sh
-	rm xc.sh
+dclean: clean
+	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clear && cd ..;)
+
+
+

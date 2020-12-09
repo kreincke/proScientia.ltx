@@ -18,7 +18,7 @@ help:
 	echo "make [ default | all | filename.pdf | help ]  [ REL=1.2 ]?" 
 
 	
-.SUFFIXES: .tex .dvi .ps .pdf .rtf 
+.SUFFIXES: .tex .dvi .ps .pdf .rtf .md
 
 .tex.pdf:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
@@ -52,6 +52,14 @@ endif
 	@ echo "### `date +'%Y%m%dT%H%M%S'`" 
 	@ echo "### converting $< to $@"
 	@ dvips $<
+
+.md.pdf:
+	pandoc -o $@ -f gfm $<
+
+.md.tex:
+	pandoc -o  `basename $< .md`-snippet.tex -f gfm $<
+
+
 
 clearAuxFiles:
 	$(foreach EXT, ${AUX_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)

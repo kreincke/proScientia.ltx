@@ -79,7 +79,8 @@ Additionally, ***lrt4cs*** contains tools to support the process of doing the hu
 
 Finally, ***lrt4cs*** contains
 * `bib/lit.main.bib` (= stores the bibliographic data of the secondary literature, can be edited by a respectively configured *jabref* or a plain text editor, is integrated into the final text by the command LaTeX-command `\addbibresource`)
-* `bib/lit.abstr.bib` (= store the bibliographic data of abstract secondary literature, can be edited / reviewed by a respectively configured *jabref* or a plain text editor, is used for learning, is added to *demo.tex* for showing all aspects of the (German) classical philology style)
+* `bib/lit.demo.bib` (= store the bibliographic data of abstract secondary literature, can be used for learning the type fields, is used by *demo-de.tex* and  *demo-en.tex* for showcasing all aspects of the (German) classical philology style)
+* `bib/lit.verify.bib` (= contains two entries, is used by *verify-de.tex* and  *verify-en.tex* for creating verification contexts)
 * `bib/ncl.abbreviations.tex` (= stores general abbreviations, can be edited by any text editor, is added by the LaTeX command `\input{bib/ncl.abbreviations.tex}`
 )
 * `bib/ncl.journals.tex`(= stores journal specific abbreviations, can be edited by any text editor, is added by the LaTeX command `\input{bib/ncl.journals.tex}`
@@ -131,5 +132,5 @@ Other than the license CC-BY-4.0, CC-BY-3.0 requires to indicate that changes we
 > 1. Instantiating *lrt4cs* files and reusing them in once own (scientific) writing project does not make this writing project a derivative work of *lrt4cs* (hence: you do not have to mark your modifications)  
 > 2. But if you distribute a modified version of *lrt4cs* as a non-instantiated set of templates (as you've got it), you must mark your modifications  
 > 3. The requirement *to give appropriate credit and provide a link to the license* is can be fulfilled by adding the following hint to your writing project  
->  * Dieser Text wurde mit *lrt4cs* von (c) Karsten Reincke (= https://www.fodina.de/lrt4cs ) erarbeitet, das unter der CC-BY-3.0-DE Lizenz (= https://creativecommons.org/licenses/by/3.0/) distribuiert wird.
->  * This text has been created by using *lrt4cs* of (c) Karsten Reincke (= https://www.fodina.de/lrt4cs ), which has been distributed under the terms of the CC-BY-3.0-DE license (= https://creativecommons.org/licenses/by/3.0/).
+>  * Erarbeitet mit dem Paket lrt4cs © 2020 K. Reincke (https://fodina.de/lrt4cs), das CC-BY-3.0-DE ( https://creativecommons.org/licenses/by/3.0/) lizenziert wurde.
+>  * Created by using the package lrt4cs © 2020 K. Reincke (https://fodina.de/lrt4cs) that is CC-BY-3.0-DE licensed (https://creativecommons.org/licenses/by/3.0/)

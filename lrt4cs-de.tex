@@ -10,7 +10,7 @@
   oneside,
   abstract=true,
   toc=bib,
-  english,ngerman]{scrartcl}
+  english,ngerman]{scrbook}
 
 %%% (1) general configurations %%%
 \usepackage[utf8]{inputenc}
@@ -22,10 +22,10 @@
   style=authortitle-dw,
   sortlocale=auto,
 ]{biblatex}
-\input{../cfg/inc.cfg-biber-de.tex}
+\input{cfg/inc.cfg-biber-de.tex}
 
-\addbibresource{../bib/lit.verify.bib}
-\addbibresource{../bib/lit.main.bib}
+\addbibresource{bib/lit.verify.bib}
+\addbibresource{bib/lit.main.bib}
 
 % package for improving the grey value and the line feed handling
 \usepackage{microtype}
@@ -37,7 +37,7 @@
 ]{csquotes}
 
 % language specific hyphenation
-\input{../cfg/inc.hyphen.tex}
+\input{cfg/inc.hyphen.tex}
 
 %%% (3) layout page configuration %%%
 
@@ -65,7 +65,7 @@
 \usepackage{nameref}
 
 %integrate nomenclature
-\input{../cfg/inc.cfg-ncl-de.tex}
+\input{cfg/inc.cfg-ncl-de.tex}
 
 % Hyperlinks
 \usepackage{hyperref}
@@ -76,35 +76,56 @@
 %% use all entries of the bliography
 \nocite{*}
 
-%%-- start(titlepage)
-\titlehead{Bib\LaTeX}
-\subject{Release 1.0}
-\title{Test bibliographischer Angaben\footnote{Dieser Text entstammt \emph{lrt4cs} [\ \copyright\ 2020 Karsten Reincke, \href{https://www.fodina.de/lrt4cs}{https://www.fodina.de/lrt4cs} ], das unter der CC-BY-3.0-DE Lizenz (= \href{https://creativecommons.org/licenses/by/3.0/}{https://creativecommons.org/licenses/by/3.0/} ) veröffentlicht wurde.}}
+\titlehead{Klassifikation}
+\subject{Release \input{cfg/inc.rel.tex}}
+\title{Titel}
+\subtitle{Untertitel}
+\author{Autor\input{cfg/inc.lfnote-de.tex}}
 
 \maketitle
-%%-- end(titlepage)
-\begin{abstract}
-\noindent \itshape
-Ein bibliographischer Eintrag in \texttt{lit.main.bib} wird fallweise ausgetestet:
-\end{abstract}
 
+\chapter{Einleitung}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Replace KantKdrV1974 by the BibtexKey of the dataset you want to test %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Verifikation: Zitatmarkierung}
 
-\section{Kontextsensitiver Test}
 
 \begin{itemize}
-  \item \enquote{Alle Daten} = Initialzitat\footcite[vgl.][123]{KantKdrV1974}
-  \item \enquote{ders. ebda} = dasselbe Werk, dieselbe Seite\footcite[vgl.][123]{KantKdrV1974}
-  \item \enquote{ders. a.a.O. p.} = dasselbe Werk, andere Seit\footcite[vgl.][125f]{KantKdrV1974}
-  \item \enquote{ders. + Daten} = derselbe Autor, anderes Werk\footcite[vgl.][321]{KantKdpV1974} (Simulation\footcite[vgl.][42]{KantKdU1974} )
-  \item \enquote{Kurztitel} = erstes Werk, erste Seite, anderer  Kontext\footcite[vgl.][123]{KantKdrV1974}
+
+  \item \enquote{Zitat mit \enquote{eingebettetem Zitat}}
+
+  \item Deutscher Satz \foreignquote{german}{with embedded foreign phrase}
+  als eingebettetes Zitat. Erwartetes Resultat: Deutsche Anführungszeichen,
+  weil Teil in einem deutsche Satz.
+
+  \item Autonomes englischsprachiges Zitat:
+  \begin{quote}
+    \foreignquote{english}{This shall be an English written paragraph containing
+    a set of sentences which together build the quote.}
+  \end{quote}
+  Erwartetes Ergebnis: Englische Anführungszeichen, weil autonomer Satz.
 \end{itemize}
 
-\input{../bib/ncl.abbrevs.tex}
-\input{../bib/ncl.journals.tex}
+\section{Verifikation: Literaturnachweis}
+\begin{itemize}
+  \item Buch1 (erstverwendungen)\footcite[vgl.][15]{KantKdrV1974}
+  \item ders. ebda.\footcite[vgl.][15]{KantKdrV1974}
+  \item ders. a.a.O.\footcite[vgl.][23]{KantKdrV1974}
+  \item Buch2 (erstverwendung)\footcite[vgl.][15]{KantKdU1974}
+  \item Buch1 (wiederverwendung)\footcite[vgl.][15]{KantKdrV1974}
+\end{itemize}
+
+\chapter{Snippet Demo}
+\begin{quote}\itshape
+In diesem Kapitel erläutern wir \ldots
+\end{quote}
+
+\section{Snippet}
+\input{snippets/inc.snippet.tex}
+
+
+
+\input{bib/ncl.abbrevs.tex}
+\input{bib/ncl.journals.tex}
 \printnomenclature
 \printbibliography
 

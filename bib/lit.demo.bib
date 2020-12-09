@@ -1,10 +1,14 @@
 % Encoding: UTF-8
 
-General: addendum;annotation;note;langid;url;urldate;owner;timestamp;file
+% This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
+% https://www.fodina.de/lrt4cs] that is distributed under the terms
+% of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
 
-Incollection:
-mandatory: author;gender;title;pages;shorttitle;crossref
-optional: subtitle;titleaddon;translator;
+% General: addendum;annotation;note;langid;url;urldate;owner;timestamp;file
+
+% Incollection:
+% mandatory: author;gender;title;pages;shorttitle;crossref
+% optional: subtitle;titleaddon;translator;
 
 @Incollection{ICA12020a,
   author     = {ICA1-ManName, ICA1-ManPrename},
@@ -86,9 +90,9 @@ optional: subtitle;titleaddon;translator;
   note         = {Print},
 }
 
-Inproceedings:
-mandatory: author;gender;title;pages;shorttitle;crossref
-optional: subtitle;titleaddon;translator;
+% Inproceedings:
+% mandatory: author;gender;title;pages;shorttitle;crossref
+% optional: subtitle;titleaddon;translator;
 
 @Inproceedings{IPA12020a,
   author       = {IPA1-ManName, IPA1-ManPrename},
@@ -172,7 +176,8 @@ optional: subtitle;titleaddon;translator;
 
 % Article:
 % mandatory: author;gender;title;journaltitle;date;pages;shorttitle;
-% optional: subtitle;translator;titleaddon;journalsubtitle;number;series;volume;issn;issue;
+% optional: subtitle;translator;titleaddon;journalsubtitle;number;series;
+%           volume;issn;issue;
 
 @Article{ZA12020a,
   author          = {ZA1-ManName, ZA1-ManPrename},
@@ -287,7 +292,8 @@ optional: subtitle;titleaddon;translator;
 
 % book:
 % mandatory:  author;gender;title;location;date;shorttitle
-% optional: subtitle;titleaddon;translator;edition;editor;isbn;publisher;series;volume
+% optional:   subtitle;titleaddon;translator;edition;editor;isbn;
+%             publisher;series;volume
 
 @Book{B12020a,
   author       = {BOOK1-ManName, BOOK1-ManPrename},
@@ -625,8 +631,9 @@ optional: subtitle;titleaddon;translator;
 }
 
 % Proceedings
-% mandatory: title;editor;gender;location;date;shorttitle;
-% optional: subtitle;titleaddon;translator;edition;isbn;organization;publisher;series;volume
+% mandatory:  title;editor;gender;location;date;shorttitle;
+% optional:   subtitle;titleaddon;translator;edition;isbn;organization;
+%             publisher;series;volume
 
 @Proceedings{P12020a,
   editor       = {PROC1-ManName, PROC1-ManPrename},
