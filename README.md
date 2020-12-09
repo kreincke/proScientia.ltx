@@ -22,11 +22,11 @@
 
 For setting up and using ***lrt4cs*** successfully:
 
-1. Clone the ***lrt4cs*** repository `git clone https://github.com/kreincke/lrt4cs` (or download and extract the respective tarball)
+* Clone the ***lrt4cs*** repository `git clone https://github.com/kreincke/lrt4cs` (or download and extract the respective tarball)
 
-2. Open a shell, change into the ***lrt4cs*** directory
+* Open a shell, change into the ***lrt4cs*** directory
 
-3. Configure your system
+* Configure your system
 
   - Select a project identifier *YOURPRJ* that does not contain blanks or slashes
 
@@ -40,7 +40,7 @@ For setting up and using ***lrt4cs*** successfully:
 
   - execute `make dclean` = deletes all derived files
 
-4. Do your library work 
+* Do your library work 
 
   - Edit / update the file *tools/search.tex* in accordance with your needs.
 
@@ -55,7 +55,7 @@ For setting up and using ***lrt4cs*** successfully:
     - initialize the respective extract by copying *excerpt/excerpt.md* to *excerpt/BIBTEXKEY.md*
     - read and extract the secondary litature 
 
-5. Write your work
+* Write your work
    - edit / update your frame tex file *YOUR-PRJ-NAME.tex*
    - create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
    - integrate the snippets by using the LaTeX command `\input{snippets/inc.YOURCHOICE.tex}`
