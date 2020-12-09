@@ -22,44 +22,29 @@
 
 For setting up and using ***lrt4cs*** successfully:
 
-* Clone the ***lrt4cs*** repository `git clone https://github.com/kreincke/lrt4cs` (or download and extract the respective tarball)
-
-* Open a shell, change into the ***lrt4cs*** directory
-
-* Configure your system
-
-  - Select a project identifier *YOURPRJ* that does not contain blanks or slashes
-
-  - execute `acquire.sh YOURPRJ [de|en]` = integrates the string *YOURPRJ* into the files needing it, moves the files that do not match the selected localization identifier and all *.git*-files to *trash*
-
-  - execute `make YOUR-PRJ.pdf` = verifies that your system is running
-
-  - `cd tools && make demo-[en|de].pdf` = showcases the features of ***lrt4cs***
-
-  - compare tools/demo-[en|de].pdf with references/tools/demo-[en|de].pdf = should contain the same content
-
-  - execute `make dclean` = deletes all derived files
-
-* Do your library work 
-
-  - Edit / update the file *tools/search.tex* in accordance with your needs.
-
-  - `cd tools && make search.pdf` = create you search report
-
-  - Call *Jabref*. Goto *Preferences/Import preferences* and import *cfg/jabref-biblatex-prefs.xml*. Close *Jabref*.
-
-  - Do your library research work as you planned it in *tools/search.tex*:
-
-    - incorporate the bibliographic data of the secondary litature into *bib/lit.main.bib* by using *jabref* or any other text editor
-    - in case of web documents download the pdf files as *references/BIBTEXKEY.pdf*
-    - initialize the respective extract by copying *excerpt/excerpt.md* to *excerpt/BIBTEXKEY.md*
-    - read and extract the secondary litature 
-
-* Write your work
-   - edit / update your frame tex file *YOUR-PRJ-NAME.tex*
-   - create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
-   - integrate the snippets by using the LaTeX command `\input{snippets/inc.YOURCHOICE.tex}`
-   - Open a shell and type `make YOUR-PRJ.pdf` to create a human readable version of your scientific work.
+1. Clone the ***lrt4cs*** repository `git clone https://github.com/kreincke/lrt4cs` (or download and extract the respective tarball)
+2. Open a shell, change into the ***lrt4cs*** directory
+3. Configure your system
+   * Select a project identifier *YOURPRJ* that does not contain blanks or slashes
+   * execute `acquire.sh YOURPRJ [de|en]` = integrates the string *YOURPRJ* into the files needing it, moves the files that do not match the selected localization identifier and all *.git*-files to *trash*
+   * execute `make YOUR-PRJ.pdf` = verifies that your system is running
+   * `cd tools && make demo-[en|de].pdf` = showcases the features of ***lrt4cs***
+   * compare tools/demo-[en|de].pdf with references/tools/demo-[en|de].pdf = should contain the same content
+   * execute `make dclean` = deletes all derived files
+4. Do your library work 
+   * Edit / update the file *tools/search.tex* in accordance with your needs.
+   * `cd tools && make search.pdf` = create you search report
+   * Call *Jabref*. Goto *Preferences/Import preferences* and import *cfg/jabref-biblatex-prefs.xml*. Close *Jabref*.
+   * Do your library research work as you planned it in *tools/search.tex*:
+      - incorporate the bibliographic data of the secondary litature into *bib/lit.main.bib* by using *jabref* or any other text editor
+      - in case of web documents download the pdf files as *references/BIBTEXKEY.pdf*
+      - initialize the respective extract by copying *excerpt/excerpt.md* to *excerpt/BIBTEXKEY.md*
+      - read and extract the secondary litature 
+5. Write your work
+   * edit / update your frame tex file *YOUR-PRJ-NAME.tex*
+   * create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
+   * integrate the snippets by using the LaTeX command `\input{snippets/inc.YOURCHOICE.tex}`
+   * Open a shell and type `make YOUR-PRJ.pdf` to create a human readable version of your scientific work.
 
 
 ## Structure
