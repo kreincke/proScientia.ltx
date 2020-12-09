@@ -24,35 +24,42 @@ For setting up and using ***lrt4cs*** successfully:
 
 1. Clone the ***lrt4cs*** repository `git clone https://github.com/kreincke/lrt4cs` (or download and extract the respective tarball)
 
-2. Select a project identifier *YOURPRJ* that does not contain blanks or slashes.
+2. Open a shell, change into the ***lrt4cs*** directory
 
-3. Open a shell, change into the ***lrt4cs*** directory and execute the following commands
+3. Configure your system
 
-  1. `acquire.sh YOURPRJ [de|en]` = integrates the string *YOURPRJ* into the files needing it, moves the files that do not match the selected localization identifier and all *.git*-files to *trash*
+  - Select a project identifier *YOURPRJ* that does not contain blanks or slashes
 
-  2. `make YOUR-PRJ.pdf` = verifies that your system is running
+  - execute `acquire.sh YOURPRJ [de|en]` = integrates the string *YOURPRJ* into the files needing it, moves the files that do not match the selected localization identifier and all *.git*-files to *trash*
 
-  3. `make tools/demo.pdf` = showcases the features of ***lrt4cs***
+  - execute `make YOUR-PRJ.pdf` = verifies that your system is running
 
-  4. `make dclean` = deletes all derived files
+  - `cd tools && make demo-[en|de].pdf` = showcases the features of ***lrt4cs***
 
-4. Edit
+  - compare tools/demo-[en|de].pdf with references/tools/demo-[en|de].pdf = should contain the same content
 
-7. Edit / update the file *tools/search.tex* in accordance with your needs.
+  - execute `make dclean` = deletes all derived files
 
-8. `make tools/search.pdf` :-
+4. Do your library work 
 
-8. Call *Jabref*. Goto *Preferences/Import preferences* and import *cfg/jabref-biblatex-prefs.xml*. Close *Jabref*.
+  - Edit / update the file *tools/search.tex* in accordance with your needs.
 
-9. Do your library research work as you planned it in *tools/search.tex*:
+  - `cd tools && make search.pdf` = create you search report
 
-  - incorporate the bibliographic data into *bib/lit.main.bib* by using *jabref* or any other text editor
-  - in case of web documents download the pdf files as *references/BIBTEXKEY.pdf*
-  - create respective excerpts by copying *excerpt/excerpt-tpl.tex* to *excerpt/BIBTEXKEY.tex*
+  - Call *Jabref*. Goto *Preferences/Import preferences* and import *cfg/jabref-biblatex-prefs.xml*. Close *Jabref*.
 
-10. Create your own scientific work by editing *YOUR-PRJ-NAME.tex*, create snippets by copying *snippets/inc.snippet-tpl.tex* to *snippets/inc.YOURCHOICE.tex* and editing it, integrate the snippets by using the LaTeX command `\input{snippets/inc.YOURCHOICE.tex}`
+  - Do your library research work as you planned it in *tools/search.tex*:
 
-11. Open a shell and type `make YOUR-PRJ.pdf` to create a human readable version of your scientific work.
+    - incorporate the bibliographic data of the secondary litature into *bib/lit.main.bib* by using *jabref* or any other text editor
+    - in case of web documents download the pdf files as *references/BIBTEXKEY.pdf*
+    - initialize the respective extract by copying *excerpt/excerpt.md* to *excerpt/BIBTEXKEY.md*
+    - read and extract the secondary litature 
+
+5. Write your work
+   - edit / update your frame tex file *YOUR-PRJ-NAME.tex*
+   - create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
+   - integrate the snippets by using the LaTeX command `\input{snippets/inc.YOURCHOICE.tex}`
+   - Open a shell and type `make YOUR-PRJ.pdf` to create a human readable version of your scientific work.
 
 
 ## Structure
