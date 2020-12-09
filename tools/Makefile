@@ -12,7 +12,11 @@ RES_EXTS=ps pdf
 
 default:  demo-de.pdf
 
-all: demo-de.pdf demo-en.pdf verify-de.pdf verify-en.pdf
+all: ade aen
+
+ade: demo-de.pdf verify-de.pdf search-de.pdf
+
+aen: demo-en.pdf verify-en.pdf search-en.pdf
 
 help:
 	echo "make [ default | all | filename.pdf | help ]  [ REL=1.2 ]?"
