@@ -12,7 +12,8 @@ RES_EXTS=ps pdf
 
 default:  demo-de.pdf
 
-all: ade aen
+all:
+	echo "make [ade | ade]"
 
 ade: demo-de.pdf verify-de.pdf search-de.pdf
 
