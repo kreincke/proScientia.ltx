@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
+# https://www.fodina.de/lrt4cs] that is distributed under the terms
+# of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
+
 
 DE="de"
 EN="en"
@@ -16,22 +20,22 @@ if [ "$2" == "" ]; then mhelp; fi;
 
 PID=$2
 
-if [ "$1" == "${EN}" ]; then 
-  UNUSED_LANGUAGE="${DE}"; 
+if [ "$1" == "${EN}" ]; then
+  UNUSED_LANGUAGE="${DE}";
 elif [ "$1" == "${DE}" ]; then
-  UNUSED_LANGUGAE="${EN}"; 
+  UNUSED_LANGUGAE="${EN}";
 else
-  mhelp; 
+  mhelp;
 fi
 
 ULV="${UNUSED_LANGUAGE}\."
 
 function isInfix {
   DE=`echo "$1" | grep "$2"`;
-  if [ "$DE" == "$1" ]; then 
-    true 
-  else 
-    false 
+  if [ "$DE" == "$1" ]; then
+    true
+  else
+    false
   fi;
 }
 
@@ -47,4 +51,3 @@ mv x.x Makefile;
 
 rm -rf .git
 rm $0
-

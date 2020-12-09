@@ -1,4 +1,7 @@
 \ProvidesFile{biblatex.cfg}
+% This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
+% https://www.fodina.de/lrt4cs] that is distributed under the terms
+% of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
 
 
 \ExecuteBibliographyOptions{
@@ -59,12 +62,12 @@
 \renewcommand*{\citerevsdnamedelim}{\addspace}
 
 % biblatex-dw does not print 'ders.' / 'dies.' in a row of cites quoting
-% the same book. Additionally, it does not know the diffrence between the 
-% same page of of the same work and a different page of the same work 
+% the same book. Additionally, it does not know the diffrence between the
+% same page of of the same work and a different page of the same work
 % quoted before.
 %
-% As soon as biblatex 3.15 is offered by UBUNTU 
-% use \bibncpstring[\mkibid]{ibidem} instaed of inserting the 
+% As soon as biblatex 3.15 is offered by UBUNTU
+% use \bibncpstring[\mkibid]{ibidem} instaed of inserting the
 % German string literally as this hack does:
 \renewbibmacro*{cite:ibid}{%
 {\ifthenelse{\ifloccit}

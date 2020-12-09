@@ -1,5 +1,9 @@
 # lrt4cs
-
+<!--
+% This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
+% https://www.fodina.de/lrt4cs] that is distributed under the terms
+% of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
+-->
 
 <p align="center">
     <a href="https://github.com/kreincke/lrt4cs/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/kreincke/lrt4cs?style=flat"></a>
@@ -26,7 +30,7 @@ For setting up and using ***lrt4cs*** successfully:
 2. Open a shell, change into the ***lrt4cs*** directory
 3. Configure your system
    * Select a project identifier *YOURPRJ* that does not contain blanks or slashes
-   * execute `assimilate.sh YOURPRJ [de|en]` = 
+   * execute `assimilate.sh YOURPRJ [de|en]` =
      - integrates the string *YOURPRJ* into the Makefile
      - renames `ltr4sc-xy.tex` as *YOURPRJ*.tex
      - moves the files that do not match the selected localization identifier into a *trash* directory
@@ -36,7 +40,7 @@ For setting up and using ***lrt4cs*** successfully:
    * `cd tools && make demo-[en|de].pdf` = showcases the features of ***lrt4cs***
    * compare tools/demo-[en|de].pdf with references/tools/demo-[en|de].pdf = should contain the same content
    * execute `make dclean` = deletes all derived files
-4. Do your library work 
+4. Do your library work
    * Edit / update the file *tools/search.tex* in accordance with your needs.
    * `cd tools && make search.pdf` = create you search report
    * Call *Jabref*. Goto *Preferences/Import preferences* and import *cfg/jabref-biblatex-prefs.xml*. Close *Jabref*.
@@ -44,7 +48,7 @@ For setting up and using ***lrt4cs*** successfully:
       - incorporate the bibliographic data of the secondary litature into *bib/lit.main.bib* by using *jabref* or any other text editor
       - in case of web documents download the pdf files as *references/BIBTEXKEY.pdf*
       - initialize the respective extract by copying *excerpt/excerpt.md* to *excerpt/BIBTEXKEY.md*
-      - read and extract the secondary litature 
+      - read and extract the secondary litature
 5. Write your work
    * edit / update your frame tex file *YOUR-PRJ-NAME.tex*
    * create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
@@ -66,7 +70,7 @@ Particularly, ***lrt4cs*** contains files
   - `cfg/inc.cfg-ncl-en.tex`
   - `cfg/nomencl.ist`
 * to overwrite automatically applied hyphenations
-  - `cfg/inc.hyphen.tex`
+  - `cfg/inc.babelhyphenations.tex`
 
 Additionally, ***lrt4cs*** contains tools to support the process of doing the humanities research work:
 * `tools/list.tex` prints the complete bibliography as it arises in the final work

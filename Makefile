@@ -63,7 +63,7 @@ dclear: clear
 	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clear && cd ..;)
 
 dclean: clean
-	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clear && cd ..;)
+	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clean && cd ..;)
 
 
 
