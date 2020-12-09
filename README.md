@@ -26,7 +26,12 @@ For setting up and using ***lrt4cs*** successfully:
 2. Open a shell, change into the ***lrt4cs*** directory
 3. Configure your system
    * Select a project identifier *YOURPRJ* that does not contain blanks or slashes
-   * execute `acquire.sh YOURPRJ [de|en]` = integrates the string *YOURPRJ* into the files needing it, moves the files that do not match the selected localization identifier and all *.git*-files to *trash*
+   * execute `assimilate.sh YOURPRJ [de|en]` = 
+     - integrates the string *YOURPRJ* into the Makefile
+     - renames `ltr4sc-xy.tex` as *YOURPRJ*.tex
+     - moves the files that do not match the selected localization identifier into a *trash* directory
+     - erases the `.git` directory
+     - erases itself
    * execute `make YOUR-PRJ.pdf` = verifies that your system is running
    * `cd tools && make demo-[en|de].pdf` = showcases the features of ***lrt4cs***
    * compare tools/demo-[en|de].pdf with references/tools/demo-[en|de].pdf = should contain the same content
