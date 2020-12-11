@@ -30,6 +30,7 @@ For setting up and using ***lrt4cs*** successfully:
 2. Open a shell, change into the ***lrt4cs*** directory
 3. Configure your system
    * Select a project identifier *YOURPRJ* that does not contain blanks or slashes
+   * execute `chmod 755 assimilate.sh`
    * execute `assimilate.sh YOURPRJ [de|en]` =
      - integrates the string *YOURPRJ* into the Makefile
      - renames `ltr4sc-xy.tex` as *YOURPRJ*.tex
@@ -133,5 +134,5 @@ Other than the license CC-BY-4.0, CC-BY-3.0 requires to indicate that changes we
 > 1. Instantiating *lrt4cs* files and reusing them in once own (scientific) writing project does not make this writing project a derivative work of *lrt4cs* (hence: you do not have to mark your modifications)  
 > 2. But if you distribute a modified version of *lrt4cs* as a non-instantiated set of templates (as you've got it), you must mark your modifications  
 > 3. The requirement *to give appropriate credit and provide a link to the license* is can be fulfilled by adding the following hint to your writing project  
->  * Erarbeitet mit dem Paket lrt4cs © 2020 K. Reincke (https://fodina.de/lrt4cs), das CC-BY-3.0-DE ( https://creativecommons.org/licenses/by/3.0/) lizenziert wurde.
+>  * Erarbeitet mit dem Paket lrt4cs © 2020 K. Reincke (https://fodina.de/lrt4cs), das CC-BY-3.0-DE (https://creativecommons.org/licenses/by/3.0/) lizenziert wurde.
 >  * Created by using the package lrt4cs © 2020 K. Reincke (https://fodina.de/lrt4cs) that is CC-BY-3.0-DE licensed (https://creativecommons.org/licenses/by/3.0/)
