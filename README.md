@@ -45,10 +45,10 @@ For setting up and using ***lrt4cs*** successfully:
    * `cd tools && make search.pdf` = create you search report
    * Call *Jabref*. Goto *Preferences/Import preferences* and import *cfg/jabref-biblatex-prefs.xml*. Close *Jabref*.
    * Do your library research work as you planned it in *tools/search.tex*:
-      - incorporate the bibliographic data of the secondary litature into *bib/lit.main.bib* by using *jabref* or any other text editor
+      - incorporate the bibliographic data of the secondary literature into *bib/lit.main.bib* by using *jabref* or any other text editor
       - in case of web documents download the pdf files as *references/BIBTEXKEY.pdf*
       - initialize the respective extract by copying *excerpt/excerpt.md* to *excerpt/BIBTEXKEY.md*
-      - read and extract the secondary litature
+      - read and extract the secondary literature
 5. Write your work
    * edit / update your frame tex file *YOUR-PRJ-NAME.tex*
    * create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
