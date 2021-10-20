@@ -12,15 +12,14 @@ RES_EXTS=ps pdf
 
 default:  demo-de.pdf
 
-all:
-	echo "make [ade | ade]"
+all: aen ade
 
 ade: demo-de.pdf verify-de.pdf search-de.pdf
 
 aen: demo-en.pdf verify-en.pdf search-en.pdf
 
 help:
-	echo "make [ default | all | filename.pdf | help ]  [ REL=1.2 ]?"
+	echo "make [ default | aen | ade | all | filename.pdf | help ]  [ REL=1.2 ]?"
 
 
 .SUFFIXES: .tex .dvi .ps .pdf .rtf
