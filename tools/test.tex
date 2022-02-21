@@ -1,0 +1,152 @@
+% This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
+% https://www.fodina.de/lrt4cs] that is distributed under the terms
+% of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
+
+\documentclass[
+  DIV=calc,i
+  BCOR=5mm,
+  11pt,
+  headings=small,
+  oneside,
+  abstract=true,
+  toc=bib,
+  english,ngerman]{scrartcl}
+
+%%% (1) general configurations %%%
+\usepackage[utf8]{inputenc}
+\usepackage{a4}
+
+%%% (2) language specific configurations %%%
+\usepackage[english,ngerman]{babel}
+%\selectlanguage{ngerman}
+
+\usepackage[
+  backend=biber,
+  style=authortitle-dw,
+  %style=authortitle,
+  sortlocale=auto,
+  %citestyle=
+]{biblatex}
+\input{../cfg/inc.cfg-biber-de.tex}
+
+\addbibresource{../bib/lit.test.bib}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+\usepackage[
+  style=german,
+  autostyle=true,
+]{csquotes}
+
+% language specific hyphenation
+\input{../cfg/inc.babelhyphenations.tex}
+
+%%% (3) layout page configuration %%%
+
+% select the visible parts of a page
+% S.31: { plain|empty|headings|myheadings }
+%\pagestyle{myheadings}
+\pagestyle{headings}
+
+% select the wished style of page-numbering
+% S.32: { arabic,roman,Roman,alph,Alph }
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% select the wished distances using the general setlength order:
+% S.34 { baselineskip| parskip | parindent }
+% - general no indent for paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+
+%%% (4) general package activation %%%
+%\usepackage{utopia}
+%\usepackage{courier}
+%\usepackage{avant}
+\usepackage[dvips]{epsfig}
+
+% graphic
+\usepackage{graphicx,color}
+\usepackage{array}
+\usepackage{shadow}
+\usepackage{fancybox}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{trees}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{chngcntr}
+
+
+%- start(footnote-configuration)
+
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+% if document class: count footnotes from start to end
+%\counterwithout{footnote}{chapter}
+%- end(footnote-configuration)
+
+% package for macking tables with broken lines
+\usepackage{multirow}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{../cfg/inc.cfg-ncl-de.tex}
+
+% depth of contents
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+\begin{document}
+
+%% use all entries of the bliography
+\nocite{*}
+
+%%-- start(titlepage)
+\titlehead{Bib\LaTeX}
+\subject{Release 1.0}
+\title{Verifikation der deutschen Konfiguration}
+\subtitle{Kurztest anhand einer abstrakten Bibliographie}
+\author{Autor\footnote{Dieser Text entstammt \emph{lrt4cs} [\ \copyright\ 2020 Karsten Reincke, \href{https://www.fodina.de/lrt4cs}{https://www.fodina.de/lrt4cs} ], das unter der CC-BY-3.0-DE Lizenz (= \href{https://creativecommons.org/licenses/by/3.0/}{https://creativecommons.org/licenses/by/3.0/} ) veröffentlicht wurde.}}
+
+%thanks entry cannot be combined with license footnote
+%\thanks{den Autoren von KOMA-Script und denen von Jurabib}
+
+\maketitle
+%%-- end(titlepage)
+
+\footnotesize
+\tableofcontents
+
+\normalsize
+
+\section{Test}
+\begin{description}
+  \item[\mars]: Complete\footcite[vgl.][15]{ICOLLa}, ders. ebda.\footcite[vgl.][15]{ICOLLa}, ders. a.a.O.\footcite[vgl.][23]{ICOLLa}, break\footcite[vgl.][15]{BR2020a}, ShortTitle\footcite[vgl.][15]{ICOLLa}
+
+  \item[\mars]: Complete\footcite[vgl.][15]{IPROCa}, ders. ebda.\footcite[vgl.][15]{IPROCa}, ders. a.a.O.\footcite[vgl.][23]{IPROCa}, break\footcite[vgl.][15]{BR2020a}, ShortTitle\footcite[vgl.][15]{IPROCa}
+\end{description}
+
+\input{../bib/ncl.abbrevs.tex}
+\input{../bib/ncl.journals.tex}
+\printnomenclature
+\printbibliography
+
+\end{document}

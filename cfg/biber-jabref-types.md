@@ -4,29 +4,32 @@
 % of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
 
 -->
-* *General*: addendum;annotation;note;langid;url;urldate;owner;timestamp;file
+* *General*: shorttitle;subtitle;titleaddon;translator;addendum;annotation;note;langid;url;urldate;owner;timestamp;file;keyword;abstract
 
 * **Article**:
-  - *man*: author;gender;title;journaltitle;date;pages;shorttitle;
-  - *opt*: subtitle;translator;titleaddon;journalsubtitle;number;series;volume;issn; issue;
-* **book**:
-  - *man*: author;gender;title;location;date;shorttitle
-  - *opt*: subtitle;titleaddon;translator;edition;editor;isbn;publisher;series;volume
+  - *man*: author;gender;title;journaltitle;date;pages;
+  - *opt*: journalsubtitle;number;series;volume;issn; issue;
+* **Book**:
+  - *man*: author;gender;title;location;date;
+  - *opt*: edition;editor;isbn;publisher;volumes;volume;series;number;
 * **Collection**:
-  - *man*: title;editor;gender;location;date;shorttitle;
-  - *opt*: subtitle;titleaddon;translator;edition;isbn;publisher;series;volume
-* **Incollection**:
-  - *man*: author;gender;title;pages;shorttitle;crossref
-  - *opt*: subtitle;titleaddon;translator;
-* **Inproceedings**:
-  - *man*: author;gender;title;pages;shorttitle;crossref
-  - *opt*: subtitle;titleaddon;translator;
+  - *man*: title;editor;gender;location;date;
+  - *opt*: edition;isbn;publisher;volumes;volume;series;number;
+* **Misc**:
+  - *man*:
+  - *opt*: author;gender;title;editor;location;year;
+* **Online**:
+  - *man*: url;urldate
+  - *opt*: author;gender;title;organization;location;year;
 * **Proceedings**:
-  - *man*: title;editor;gender;location;date;shorttitle;
-  - *opt*: subtitle;titleaddon;translator;edition;isbn;organization;publisher;series;volume
-* ****:
-  - *man*:
+  - *man*: title;editor;gender;location;date;
+  - *opt*: edition;isbn;organization;publisher;volumes;volume;series;number;
+* **Inbook**:
+  - *man*: author;gender;title;pages;crossref
   - *opt*:
-* ****:
-  - *man*:
+* **Incollection**:
+  - *man*: author;gender;title;pages;crossref
+  - *opt*:
+* **Inproceedings**:
+  - *man*: author;gender;title;pages;crossref
   - *opt*:
