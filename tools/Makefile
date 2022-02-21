@@ -32,7 +32,6 @@ help:
 	@ makeindex `basename $< .tex`.nlo -s ../cfg/nomencl.ist -o `basename $< .tex`.nls
 	@ $(LATEX) $<
 	@ $(LATEX) $<
-	@ $(LATEX) $<
 ifneq ($(LATEX),pdflatex)
 	@ echo "### converting DVI to PostScript"
 	@ dvips $<
@@ -46,9 +45,8 @@ endif
 	@ echo "### `date +'%Y%m%dT%H%M%S'`"
 	@ echo "### converting $< to $@"
 	@ latex $<
-	@ bibtex `basename $< .tex`
-	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
-	@ latex $<
+	@ biber `basename $< .tex`
+	@ makeindex `basename $< .tex`.nlo -s ../cfg/nomencl.ist -o `basename $< .tex`.nls
 	@ latex $<
 	@ latex $<
 

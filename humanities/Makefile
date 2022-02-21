@@ -8,9 +8,7 @@ LATEX=pdflatex
 AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log bcf xml
 RES_EXTS=ps pdf
 
-SUBDIRS=snippets tools
-
-default:  lrt4cs-de.pdf
+default: humanities.pdf
 
 help:
 	echo "make | make YOURFILE.pdf"
@@ -22,9 +20,8 @@ help:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`"
 	@ echo "### converting $< to $@"
 	@ $(LATEX) $<
-	@ biber `basename $< .tex`
-	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
-	@ $(LATEX) $<
+	@ biber `basename $< .tex`.bcf
+	@ makeindex `basename $< .tex`.nlo -s ./nomencl.ist -o `basename $< .tex`.nls
 	@ $(LATEX) $<
 	@ $(LATEX) $<
 ifneq ($(LATEX),pdflatex)
@@ -33,15 +30,15 @@ ifneq ($(LATEX),pdflatex)
 	@ echo "### converting PostScript to PDF"
 	@ ps2pdf $<
 endif
-	@ mv $@ `basename $@ .pdf`-`cat cfg/inc.rel.tex`.pdf
+	@ mv $@ `basename $@ .pdf`-`cat humanities.inc.rel.tex`.pdf
 	@ make clearAuxFiles
 
 .tex.dvi:
 	@ echo "### `date +'%Y%m%dT%H%M%S'`"
 	@ echo "### converting $< to $@"
 	@ latex $<
-	@ biber `basename $< .tex`
-	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
+	@ biber `basename $< .tex`.bcf
+	@ makeindex `basename $< .tex`.nlo -s ./nomencl.ist -o `basename $< .tex`.nls
 	@ latex $<
 	@ latex $<
 

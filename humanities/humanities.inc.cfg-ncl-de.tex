@@ -1,0 +1,15 @@
+% This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
+% https://www.fodina.de/lrt4cs] that is distributed under the terms
+% of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
+
+\usepackage[intoc]{nomencl}
+\let\abbr\nomenclature
+% Deutsche Überschrift
+%\renewcommand{\nomname}{Abbreviations}
+\renewcommand{\nomname}{Abkürzungen}
+
+\setlength{\nomlabelwidth}{.20\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+% reduce the line distance
+\setlength{\nomitemsep}{-\parsep}
+\makenomenclature

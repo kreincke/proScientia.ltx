@@ -1,0 +1,111 @@
+\documentclass[
+  DIV=calc,
+  BCOR=5mm,
+  11pt,
+  headings=small,
+  oneside,
+  abstract=true,
+  toc=bib,
+  english,ngerman]{scrartcl}
+
+% language specific attributes
+\usepackage[utf8]{inputenc}
+\usepackage{a4}
+\usepackage[english,ngerman]{babel}
+\input{humanities.inc.babelhyphenations.tex}
+\usepackage[
+  style=german,
+  autostyle=true,
+]{csquotes}
+
+% quoting with foot- anmd endnotes
+\usepackage[
+  backend=biber,
+  style=authortitle-dw,
+  sortlocale=auto,
+]{biblatex}
+\input{humanities.inc.cfg-biber-de.tex}
+\usepackage{enotez}
+\addbibresource{humanities.bib}
+\deffootnote[1.5em]{1.5em}{1.5em}{\textsuperscript{\thefootnotemark)\ }}
+
+% for page design
+\pagestyle{headings}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex plus 0.2ex minus 0.2ex}
+
+% chapter design
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% special signs
+\usepackage{amsfonts}
+
+% make tables with broken lines
+\usepackage{multirow}
+\usepackage{chngcntr}
+\usepackage{longtable}
+\usepackage{mwe}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{humanities.inc.cfg-ncl-de.tex}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+\newcommand{\lnka}[1]{\href{#1}{\texttt{#1}}}
+\newcommand{\lnkb}[2]{\href{#1}{\texttt{#1} (Referenzdownload: #2)}}
+\newcommand{\lnkc}[2]{\href{#1}{\texttt{#2}}}
+
+% word design
+\newcommand{\ttt}[1]{\texttt{#1}}
+\newcommand{\tit}[1]{\textit{#1}}
+\newcommand{\tbf}[1]{\textbf{#1}}
+
+\begin{document}
+
+\nocite{*}
+
+%%-- start(titlepage)
+\titlehead{Wissenschaftliche Texte als Dienst an der Leserin}
+\subject{proscientia.ltx/tools/humanities.tex}
+\title{Über hilfreiche Anmerkungsapparate}
+\subtitle{Geisteswissenschaft mit \LaTeX, \emph{JabRef}, \emph{biber} und Bib\LaTeX}
+\author{Karsten Reincke\input{humanities.inc.lfnote-de.tex}}
+
+\maketitle
+%%-- end(titlepage)
+
+\begin{abstract}
+\noindent \itshape
+Der Umgang mit Quellennachweisen hat immer auch rezeptive Auswirkungen: wenn er gut ist, erleichtert er das lernende Lesen. Das gilt besonders für den (alt)philologisch/pholosophischen Anmerkungsapparat. Dieser Artikel beschreibt und zeigt an sich selbst, wozu und wie so etwas mit \LaTeX, Bib\LaTeX\ und \emph{Biber} erzeugt wird\footnote{Um es noch schärfer zu sagen: Quellenangaben dienen mir of nur dazu, im Text angesprochene Formen vorzuführen, und nicht dazu, Passagen des Textes zu belegen.}: Zuerst erklärt er, was ich mir wünsche, dann, wozu das gut ist, und schließlich, wie das technisch geht.
+\end{abstract}
+
+\footnotesize
+\tableofcontents
+\normalsize
+
+\input{humanities.inc.c1.tex}
+\input{humanities.inc.c2.tex}
+\input{humanities.inc.c3.tex}
+\input{humanities.inc.c4.tex}
+\input{humanities.inc.c5.tex}
+\input{humanities.inc.c6.tex}
+\input{humanities.inc.c7.tex}
+
+\small
+
+% insert the nomenclature here
+
+
+\input{humanities.inc.ncl.abbrevs.tex}
+\printendnotes
+\printnomenclature
+\printbibliography
+
+\end{document}

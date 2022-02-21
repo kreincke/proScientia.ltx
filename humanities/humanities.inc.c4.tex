@@ -1,0 +1,65 @@
+\section{Womit es zusammengestellt wird.}
+
+Zu bedenken wäre noch, womit eine Autorin bibliographische Angaben in ihre Bibliographiedatei eintragen soll und welche Felder pro Eintrag dazugehören. Dies hängt vom Typ eines Werkes, der bibliothekarischen bzw. bibliographischen Tradition und vom Bibliographiestil ab - hier also von \emph{biblatex-dw}-Konfiguration. Der berücksichtigt einerseits das angestrebte Erscheinungsbild, andererseits die Nachweistradition. So entstehen drei Fragen:
+\begin{itemize}
+  \item \emph{Welche Literaturtypen braucht die Geisteswissenschaftlerin?}
+  \item \emph{Welche Datenfelder gehören typischerweise zu einem Literaturtyp?}
+  \item \emph{Und wie trägt frau diese am besten in die Bibliographie-Datei ein?}
+\end{itemize}
+
+Gehen wir das der Reihe nach an:
+
+Bib\LaTeX\ selbst stellt eine große Menge möglicher Typen bereit und definiert die dazugehörenden Datenfelder.\footcite[vgl.][S. 8ff]{BibLaTeX2021a} Die Semantik der Felder erläutert es gesondert.\footcite[vgl.][S. 33ff]{BibLaTeX2021a} Es strebt an, möglichst viele Veröffentlichungsformen aus möglichst vielen Wissenschaften abzudecken. Das ist systemisch sinnvoll, aus Sicht einer spezifischen Wissenschaftlerin jedoch beschwerlich: sie muss zu viel für sie unnützes Wissen aussortieren. Wäre es nicht nutzbringender, bekäme sie vorab eine Liste der in ihrem Fach gängigen Literaturtypen? Wäre es nicht praktischer, den dann im Einzelfall doch noch fehlenden Typ später 'nachzukonfigurieren', als immer wieder die Masse auf das je Benötigte einzudampfen? Wäre es nicht semantisch sauberer und damit leichter zu merken, unterschieden sich diese Literaturtypen über die Pflichtfelder? Und würde so eine Ordnung die Nutzung eines graphischen Frontends wie \emph{JabRef} nicht erleichtern?
+
+Keine Frage: Eine solche Zusammenstellung zu liefern, kann nicht die Aufgabe von Bib\LaTeX\ oder \emph{biblatex-dw} sein, wohl aber die einer auf die (Alt)Philologie/Philosophie ausgerichteten Konfiguration\footnote{die bruchlos auch die Geschichts- und Musikwissenschaft mit abdeckt}, die der Nutzerin abnehmen möchte, was sie sich sonst aus eigenem Antrieb auch erzeugen würde. Ein guter Weg dahin beginnt damit, die allen Literaturtypen gemeinsamen \ttt{fakultativen} bibliographischen Angaben abzusondern. Die dann verbleibenden typespezifischen Mengen von obligatorischen und fakultativen bibliographischen Angaben sollten paarweise disjunkt sein\footnote{Die in der Geisteswissenschaft üblichen sechs Grundtypen sind sogar nur bezogen auf die zwingend erforderlichern Angaben disjunk.}:
+
+\begin{longtable}{|r||p{4,5cm}|p{5cm}|}
+\hline
+& zwingend & optional
+\\
+\hline \hline
+\ttt{article}\footnote{Zeitschriftenartikel} & author, gender, title, journaltitle, date, pages & journalsubtitle, number, series, volume, issn, issue \\
+\hline
+\ttt{book}\footnote{Buch einer oder mehrerer Autorinnen, die (als Team) für größere Teile des Buches stehen} & author, gender, title, location, date &  edition, editor, isbn, publisher, volumes, volume, series, number\\
+\hline
+\ttt{collection}\footnote{Sammlung von Artikeln, wie z.B. eine Festschrift oder Handbuch} & title, editor, gender, location, date & edition, isbn, publisher, volumes, volume, series number \\
+\texttt{misc}\footnote{alle Sonderfälle} & & author, gender, title, editor, location, year \\
+\hline
+\ttt{online}\footnote{Seite aus dem Internet} & url, urldate & author, gender, title, organization, location, year \\
+\hline
+\ttt{proceedings}\footnote{Konferenzbericht} & title, editor, gender, location, date, organization & edition, isbn, publisher, volumes, volume, series number\\
+\hline \hline
+\end{longtable}
+
+Dazu müssten noch die folgenden abgeleiteten Typen kommen, die zwar dieselbe Signatur an Feldern haben, darin aber auf unterschiedliche 'Primärtypen' refererien\footnote{An dieser Stelle ein Hinweis: Ich weiß, dass man beim Sammlungsartikel und beim Konferenzbericht die bibliographischen Angaben des jeweiligen Bandes mit denen des jeweiligen Artikels zusammenfassen kann. Mir erscheint es leichter, wenn frau die Bände jeweils als eigene Einträge in der Literaturliste auflisten lässt und also die Artikel per \ttt{crossref} darauf verweisen lässt: das reduziert Fehlerquellen und liest sich einheitlicher.}:
+
+\begin{longtable}{|r||p{4,5cm}|p{5cm}|}
+\hline
+& zwingend & optional
+\\
+\hline \hline
+\ttt{inbook}\footnote{Abschnitt eines Buches, das von anderen Autorinnen als denen des Buches als solches geschreiben worden ist} & author, gender, title, pages, crossref &  \\
+\hline
+\ttt{incollection}\footnote{Artikel in einer Sammlung} & author, gender, title, pages, crossref &  \\
+\hline
+\ttt{inproceedings}\footnote{Beitrag in einem Konferenzbericht} & author, gender, title, pages, crossref &  \\
+\hline \hline
+\end{longtable}
+
+Zudem sind bei jedem Literaturtyp noch die folgenden generellen optionalen Felder zulässig: \ttt{shorttitle, subtitle, titleaddon, translator, addendum, annotation, note, langid, url, urldate, owner, timestamp, file, keyword, abstract}.
+
+Mit diesen Festlegungen ausgestattet, sollte eine Autorin ihr Literaturverwaltungsprogramm, das ihre  Bib\LaTeX-Bibliographie-Datei schreibt, noch entsprechend konfigurieren. Falls sie auch mit \emph{JabRef}\footcite[vgl.][wp]{Jabref2019a} arbeitet, geschieht das so:
+
+\begin{itemize}
+  \item Upgrade von JabRef über das Betriebssystem auf die Version 5.x.
+  \item Umstellung des Bibliographiedateityps bei jeder neu angelegten Bibliographiedatei auf das Bib\LaTeX-Format.\footnote{Über \emph{Library/Library properties} kann frau in \emph{JabRef} festlegen, dass ihre Bibliographiedatei den Bib\LaTeX-Stil verwenden soll.}
+  \item Erweiterung der Liste der generell für alle Literaturtypen zulässigen Felder.\footnote{Über \emph{prefrences/Custom Editor Tabs} in \emph{JabRef} werden die Felder definiert, die jeder Eintrag mit bringen soll und die darum in einem Feld erscheinen.}
+  \item Begrenzung der Felder der erwähnten Literaturtypen auf die gelisteten Signaturen.\footnote{Über \emph{Options/Customize entry types}  in \emph{JabRef} legt sie fest, welche Daten ein typgerechter Datensatz (über die generellen hinaus) mitbringen soll.}
+\end{itemize}
+
+Auch hier hilft \emph{proscientia.ltx}: Im Ordner \emph{cfg} finden sich die Dateien \texttt{jabref-prefs.xml} und \texttt{jabref-customizedBiblatexTypes-prefs.xml}, die die entsprechenden Einstellungen mitbringen.
+
+\emph{JabRef} wertet zwei Konfigurationsdateien aus, die unter \texttt{./.java/.userPrefs/org/} oder unter \texttt{./.java/.userPrefs/net/sf/}  liegen\footnote{welche das je eigene System zieht, muss frau ausprobieren: Dazu startet sie \emph{JabRef} einmal und sieht mit dem Befehl \ttt{find ./.java | grep jabref} nach, wo die Hauptordner entstanden sind.}, nämlich \texttt{jabref/prefs.xml} und \texttt{jabref/customizedBiblatexTypes/prefs.xml}.\footnote{In der ersten Datei wird festgelegt, dass \emph{JabRef} die Bib\LaTeX-Typen verwendet und welche generellen Felder es im Frontend anbietet. In der zweiten Datei werden die Literaturtypen und ihre spezifischen Datenfelder Bib\LaTeX-bezogen definiert.} Die Nutzerin braucht also nur die \emph{proscientia.ltx}-Dateien -- jeweils unter dem Namen \ttt{prefs.xml} an die entsprechenden \emph{JabRef}-Stellen zu kopieren.\footnote{\emph{JabRef} muss dabei ausgeschaltet sein.}
+
+So erhält die Autorin in \emph{JabRef} ein aufgeräumtes Frontend ohne verwirrende Duplikate etc.
+%\bibliography{../bib/literature}

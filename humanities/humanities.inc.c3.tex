@@ -1,0 +1,31 @@
+\section{Wie es umgesetzt wird.}
+
+Mein Wunsch über all die Jahre war, dass der altphilologisch geisteswissenschaftliche Schreib- und Argumentierstil \LaTeX-like ermöglicht wird: Ein simpler Befehl für den Zitatbeleg, und der Rest sollte sich von allein
+ergeben, gerne mittels Zuladung von Paketen gesteuert, über Konfigurationen
+verfeinert und mit Bib\TeX\footcite[vgl.][]{BibtexOrgDe} oder Bib\LaTeX\footcite[vgl.][]{BibLaTeX2022a} umgesetzt. Das Berücksichtigung der fitzeligen Kleinigkeiten eines korrekten bibliographischen Nachweises jedoch wollte automatisiert sehen.
+
+Mit einem modifizierten \emph{Jurabib}\footcite[vgl.][]{Berger2004a} und \emph{KOMA-Script}\footcite[vgl.][]{Kohm2008a} war ich dem schon Anfang 2000 nahe gekommen. Aber eben nicht perfekt. Trotzdem hatte ich die Modifikationen unter dem Namen \emph{mycsrf} in einem Repository samt IDE zur Verfügung gestellt\footcite[vgl.][]{Reincke2021a} und sogar ein passendes Handbuch dazu offeriert.\footcite[vgl.][]{Reincke2018a}
+
+Nun aber ist all dies nicht mehr notwendig.\footnote{eigentlich schon seit spätestens 2016, nur habe ich die bessere Lösung leider erst 2018 entdeckt} Es geht viel einfacher und schlanker, mit \LaTeX, Bib\LaTeX\footcite[vgl.][]{BibLaTeX2022a},  Biber\footcite[vgl.][]{Biber2022a} und \emph{biblatex-dw}\footcite[vgl.][]{Waßenhoven2016a}. Möchte eine Autorin verstehen, wie das zusammenwirkt, muss sie in erster Linie \LaTeX\ kennen und können. Dann kann sie dazu die Quellen dieses Artikels untersuchen oder - noch einfacher - die Templatelösung \emph{proscientia.ltx} auschecken. In aller Kürze skizziert, funktioniert es so:
+
+Zuerst wird im Header des eigenen \LaTeX-Textes das \emph{biber}-Package und der \emph{authortitle-dw}-Stil eingebunden.\footnote{Dieser ist das, was wir meinen, wenn wir von \emph{biblatex-dw} sprechen.} Dann muss eine dazu passende Konfiguration eingebunden werden, die die Details des Erscheinungsbildes festelegt:
+
+\small
+\begin{verbatim}
+\usepackage[
+  backend=biber,
+  style=authortitle-dw,
+  sortlocale=auto,
+]{biblatex}
+\input{cfg/inc.cfg-biber-de.tex}
+\end{verbatim}
+\small
+
+\emph{proscientia.ltx} stellt eine solche Konfigurationsdatei so bereit, wie sie zur Erzeugung dieses Textes verwendet worden ist. Jedenfalls harmoniert so auch diese neue Lösung von \emph{Dirk Waßenhoven} wunderbar mit
+\emph{KOMA-Script}.\footcite[vgl.][]{Kohm2008a}
+
+Schließlich muss im Header mittels des Befehls \texttt{\textbackslash{}addbibresource\{xyz.bib\}} noch festgelegt werden, welche Bibliotheksdateien ausgewertet werden sollen.
+
+Hat die Autorin dann einen wissenschaftlichen Text mit Fuß- oder Endnoten erstellt, kann er leicht als PDF kompiliert werden:
+
+In der Bibliographiedatei wurden die bibliographischen Daten der zitierten Werke ja zu Gruppen zusammengefasst und je Werk einem Identifier versehen. Im zitierenden Text schlägt das \emph{footnote}-Tag die Brücke: \texttt{\textbackslash{}footcite[vgl.][25]\{Kohm2008a\}}. Und zuletzt bringt die Aufrufsequenz \texttt{latex biber latex latex} die Dinge zusammen. \emph{proscientia.ltx} stellt für einen automatisierten Ablauf ein \emph{Makefile} bereit.
