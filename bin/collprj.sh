@@ -60,17 +60,3 @@ cp tools/search-with-catalogs.tex ${PID}/tools/
 cp tools/Makefile.prjtools ${PID}/tools/Makefile
 cat Makefile | sed "s/${CORE}-de.pdf/${CORE}.pdf/" > ${PID}/Makefile
 exit 0;
-
-
-mkdir -p $TRASH
-
-find . -type f | grep -v "\.git" | while read f; do  if isInfix $f $ULV; then mv $f $TRASH; fi; done
-
-if [ -e ${CORE}-de.tex ]; then mv ${CORE}-de.tex $PID.tex; fi
-if [ -e ${CORE}-en.tex ]; then mv ${CORE}-en.tex $PID.tex; fi
-
-cat Makefile | sed "s/default: *lrt4cs\-../default: $PID/" > x.x;
-mv x.x Makefile;
-
-rm -rf .git
-rm $0
