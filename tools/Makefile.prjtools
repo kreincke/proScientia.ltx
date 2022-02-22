@@ -3,18 +3,22 @@
 # It is distributed under the terms of the creative commons license
 # CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
 
+
 #LATEX=latex
 LATEX=pdflatex
+REL=""
 
-AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log bcf xml
+AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log xml bcf
 RES_EXTS=ps pdf
 
-SUBDIRS=snippets tools
+default:  verify.pdf
 
-default:  proscientia-de.pdf
+all: verify.pdf search.pdf search-with-catalogs.pdf
+
 
 help:
-	echo "make | make YOURFILE.pdf"
+	echo "make [ default | all | filename.pdf | help ]  [ REL=1.2 ]?"
+
 
 .SUFFIXES: .tex .dvi .ps .pdf .rtf
 
@@ -23,7 +27,7 @@ help:
 	@ echo "### converting $< to $@"
 	@ $(LATEX) $<
 	@ biber `basename $< .tex`
-	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
+	@ makeindex `basename $< .tex`.nlo -s ../cfg/nomencl.ist -o `basename $< .tex`.nls
 	@ $(LATEX) $<
 	@ $(LATEX) $<
 ifneq ($(LATEX),pdflatex)
@@ -32,7 +36,7 @@ ifneq ($(LATEX),pdflatex)
 	@ echo "### converting PostScript to PDF"
 	@ ps2pdf $<
 endif
-	@ mv $@ `basename $@ .pdf`-`cat cfg/inc.rel.tex`.pdf
+	@ if [ ${REL} != "" ]; then mv $@ `basename $@ .pdf`-${REL}.pdf; fi
 	@ make clearAuxFiles
 
 .tex.dvi:
@@ -40,7 +44,7 @@ endif
 	@ echo "### converting $< to $@"
 	@ latex $<
 	@ biber `basename $< .tex`
-	@ makeindex `basename $< .tex`.nlo -s cfg/nomencl.ist -o `basename $< .tex`.nls
+	@ makeindex `basename $< .tex`.nlo -s ../cfg/nomencl.ist -o `basename $< .tex`.nls
 	@ latex $<
 	@ latex $<
 
@@ -52,13 +56,7 @@ endif
 clearAuxFiles:
 	$(foreach EXT, ${AUX_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
 
-clear:	clearAuxFiles
-
 clean:	clearAuxFiles
 	$(foreach EXT, ${RES_EXTS}, if [ ! "x`ls *.${EXT} 2>/dev/null`" = "x" ]; then rm *.${EXT}; fi;)
 
-dclear: clear
-	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clear && cd ..;)
-
-dclean: clean
-	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clean && cd ..;)
+clear:	clean
