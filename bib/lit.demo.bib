@@ -1,14 +1,17 @@
 % Encoding: UTF-8
 
-% This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
-% https://www.fodina.de/lrt4cs] that is distributed under the terms
-% of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
+% This file is part of proscientia.ltx
+% (c) 2022 Karsten Reincke (https://github.com/kreincke/proscientia.ltx)
+% It is distributed under the terms of the creative commons license
+% CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
 
-% General: addendum;annotation;note;langid;url;urldate;owner;timestamp;file
+% General:
+% shorttitle;subtitle;titleaddon;translator;addendum;annotation;note;
+% langid;url;urldate;owner;timestamp;file;keyword;abstract
 
 % Incollection:
-% mandatory: author;gender;title;pages;shorttitle;crossref
-% optional: subtitle;titleaddon;translator;
+% mandatory: author;gender;title;pages;crossref
+% optional:
 
 @Incollection{ICA12020a,
   author     = {ICA1-ManName, ICA1-ManPrename},
@@ -91,8 +94,8 @@
 }
 
 % Inproceedings:
-% mandatory: author;gender;title;pages;shorttitle;crossref
-% optional: subtitle;titleaddon;translator;
+% mandatory: author;gender;title;pages;crossref
+% optional:
 
 @Inproceedings{IPA12020a,
   author       = {IPA1-ManName, IPA1-ManPrename},
@@ -175,9 +178,8 @@
 }
 
 % Article:
-% mandatory: author;gender;title;journaltitle;date;pages;shorttitle;
-% optional: subtitle;translator;titleaddon;journalsubtitle;number;series;
-%           volume;issn;issue;
+% mandatory: author;gender;title;journaltitle;date;pages;
+% optional: journalsubtitle;number;series;volume;issn; issue;
 
 @Article{ZA12020a,
   author          = {ZA1-ManName, ZA1-ManPrename},
@@ -291,10 +293,8 @@
 }
 
 % book:
-% mandatory:  author;gender;title;location;date;shorttitle
-% optional:   subtitle;titleaddon;translator;edition;editor;isbn;
-%             publisher;series;volume
-
+% mandatory: author;gender;title;location;date;
+% optional: edition;editor;isbn;publisher;volumes;volume;series;number;
 @Book{B12020a,
   author       = {BOOK1-ManName, BOOK1-ManPrename},
   gender       = {sm},
@@ -521,9 +521,9 @@
   note         = {Print},
 }
 
-% Collection
-% mandatory: title;editor;gender;location;date;shorttitle;
-% optional: subtitle;titleaddon;translator;edition;isbn;publisher;series;volume
+% **Collection**:
+%  - *mandatory*: title;editor;gender;location;date;
+%  - *optional*: edition;isbn;publisher;volumes;volume;series;number;
 
 @Collection{C12020a,
   editor       = {COLL1-ManName, COLL1-ManPrename},
@@ -630,11 +630,9 @@
   note         = {Print},
 }
 
-% Proceedings
-% mandatory:  title;editor;gender;location;date;shorttitle;
-% optional:   subtitle;titleaddon;translator;edition;isbn;organization;
-%             publisher;series;volume
-
+% **Proceedings**:
+% mandatory: title;editor;gender;location;date;
+% optional: edition;isbn;organization;publisher;volumes;volume;series;number;
 @Proceedings{P12020a,
   editor       = {PROC1-ManName, PROC1-ManPrename},
   gender       = {sm},
@@ -767,6 +765,11 @@
   note       = {Print},
 }
 
+% Misc*:
+% mandatory*:
+% optional*: author;gender;title;location;date;
+% editor;howpublished;pub-state;version;
+
 @Misc{M12020a,
   author       = {M1-Name, M1-Prename},
   gender       = {sm},
@@ -788,6 +791,9 @@
   urldate      = {2020-10-30},
 }
 
+% **Online**:
+%  - *mandatory*: url;urldate
+%  - *optional*: author;gender;title;organization;location;date;pubstate
 @Online{O12020a,
   author       = {O1-Name, O1-Vorname},
   gender       = {sf},
@@ -827,7 +833,7 @@
   urldate      = {2020-10-30},
 }
 
-@Www{W12020a,
+@Online{W12020a,
   author       = {W1-Name, W1.Vorname},
   gender       = {sm},
   title        = {WWW-Title 1},

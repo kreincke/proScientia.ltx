@@ -1,6 +1,7 @@
-# This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
-# https://www.fodina.de/lrt4cs] that is distributed under the terms
-# of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
+# This file is part of proscientia.ltx
+# (c) 2022 Karsten Reincke (https://github.com/kreincke/proscientia.ltx)
+# It is distributed under the terms of the creative commons license
+# CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
 
 #LATEX=latex
 LATEX=pdflatex
@@ -63,6 +64,3 @@ dclear: clear
 
 dclean: clean
 	$(foreach DIR, ${SUB_DIRS}, cd ${DIR} && make clean && cd ..;)
-
-
-

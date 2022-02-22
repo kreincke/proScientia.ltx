@@ -1,35 +1,35 @@
 <!--
-% This file originally comes from 'lrt4cs' [(c) 2020 Karsten Reincke,
-% https://www.fodina.de/lrt4cs] that is distributed under the terms
-% of CC-BY-3.0-DE (= https://creativecommons.org/licenses/by/3.0/)
-
+% This file is part of proscientia.ltx
+% (c) 2022 Karsten Reincke (https://github.com/kreincke/proscientia.ltx)
+% It is distributed under the terms of the creative commons license
+% CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
 -->
 * *General*: shorttitle;subtitle;titleaddon;translator;addendum;annotation;note;langid;url;urldate;owner;timestamp;file;keyword;abstract
 
 * **Article**:
-  - *man*: author;gender;title;journaltitle;date;pages;
-  - *opt*: journalsubtitle;number;series;volume;issn; issue;
+  - *mandatory*: author;gender;title;journaltitle;date;pages;
+  - *optional*: journalsubtitle;number;series;volume;issn; issue;
 * **Book**:
-  - *man*: author;gender;title;location;date;
-  - *opt*: edition;editor;isbn;publisher;volumes;volume;series;number;
+  - *mandatory*: author;gender;title;location;date;
+  - *optional*: edition;editor;isbn;publisher;volumes;volume;series;number;
 * **Collection**:
-  - *man*: title;editor;gender;location;date;
-  - *opt*: edition;isbn;publisher;volumes;volume;series;number;
+  - *mandatory*: title;editor;gender;location;date;
+  - *optional*: edition;isbn;publisher;volumes;volume;series;number;
 * **Misc**:
-  - *man*:
-  - *opt*: author;gender;title;editor;location;year;
+  - *mandatory*:
+  - *optional*: author;gender;title;location;date;editor;howpublished;pub-state;version;
 * **Online**:
-  - *man*: url;urldate
-  - *opt*: author;gender;title;organization;location;year;
+  - *mandatory*: url;urldate
+  - *optional*: author;gender;title;organization;location;date;pubstate
 * **Proceedings**:
-  - *man*: title;editor;gender;location;date;
-  - *opt*: edition;isbn;organization;publisher;volumes;volume;series;number;
+  - *mandatory*: title;editor;gender;location;date;
+  - *optional*: edition;isbn;organization;publisher; volumes;volume;series;number;
 * **Inbook**:
-  - *man*: author;gender;title;pages;crossref
-  - *opt*:
+  - *mandatory*: author;gender;title;pages;crossref
+  - *optional*:
 * **Incollection**:
-  - *man*: author;gender;title;pages;crossref
-  - *opt*:
+  - *mandatory*: author;gender;title;pages;crossref
+  - *optional*:
 * **Inproceedings**:
-  - *man*: author;gender;title;pages;crossref
-  - *opt*:
+  - *mandatory*: author;gender;title;pages;crossref
+  - *optional*:
