@@ -8,7 +8,7 @@
 <p align="center">
     <a href="https://github.com/kreincke/proscientia.ltx/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/kreincke/proscientia.ltx?style=flat"></a>
     <a href="https://github.com/kreincke/proscientia.ltx/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/kreincke/proscientia.ltx?style=flat"></a>
-    <a href="https://github.com/kreincke/proscientia.ltx/blob/master/LICENSE" title="License"><img src="https://img.shields.io/badge/License-CC_BY_3.0_DE-blue.svg?style=flat"></a>
+    <a href="https://github.com/kreincke/proscientia.ltx/blob/master/LICENSE" title="License"><img src="https://img.shields.io/badge/License-CC_BY_4.0-blue.svg?style=flat"></a>
 </p>
 
 <p align="center">
