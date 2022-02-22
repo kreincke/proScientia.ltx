@@ -133,11 +133,11 @@ Copyright (c) 2022 Karsten Reincke
 
 *proscientia.ltx* is a set of template files and intended to be instantiated and reused in the users own scientific work. Therefore we decide:
 
-> 1. Instantiating *proscientia.ltx* files and reusing them in one's own (scientific) writing project does not make this writing project a derivative work of *proscientia.ltx* (hence: you do not have to mark your modifications in your project directory)  
-> 2. But if you distribute a modified version of *proscientia.ltx* as a non-instantiated set of templates (as you've got it), you must mark your modifications  
-> 3. The requirement *to give appropriate credit and provide a link to the license* can be fulfilled by adding a note to your work like this:
->  * Erstellt  auf der Basis des CC-BY-4.0 lizenzierten Tools **proscientia** von K. Reincke © 2022 Repository: [https://github.com/kreincke/proscientia.ltx](https://github.com/kreincke/proscientia.ltx),
+1. Instantiating *proscientia.ltx* files and reusing them in one's own (scientific) writing project does not make this writing project a derivative work of *proscientia.ltx* (hence: you do not have to mark your modifications in your project directory)  
+2. But if you distribute a modified version of *proscientia.ltx* as a non-instantiated set of templates (as you've got it), you must mark your modifications  
+3. The requirement *to give appropriate credit and provide a link to the license* can be fulfilled by adding a note to your work like this:
+  * Erstellt  auf der Basis des CC-BY-4.0 lizenzierten Tools **proscientia** von K. Reincke © 2022 Repository: [https://github.com/kreincke/proscientia.ltx](https://github.com/kreincke/proscientia.ltx),
 Lizenztext [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
->  * Developed on the base of the CC-BY-4.0 licensed tool **proscientia.ltx** by K. Reincke  © 2022 2022 [
+  * Developed on the base of the CC-BY-4.0 licensed tool **proscientia.ltx** by K. Reincke  © 2022 2022 [
 repository = [https://github.com/kreincke/proscientia.ltx](https://github.com/kreincke/proscientia.ltx),
 license text = [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/) ]
