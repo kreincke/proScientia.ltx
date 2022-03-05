@@ -1,5 +1,5 @@
-# This file is part of proscientia.ltx
-# (c) 2022 Karsten Reincke (https://github.com/kreincke/proscientia.ltx)
+# This file is part of proScientia.ltx
+# (c) 2022 Karsten Reincke (https://github.com/kreincke/proScientia.ltx)
 # It is distributed under the terms of the creative commons license
 # CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
 
@@ -11,7 +11,7 @@ RES_EXTS=ps pdf
 
 SUBDIRS=snippets tools
 
-default:  proscientia-de.pdf
+default:  proScientia-de.pdf
 
 help:
 	echo "make | make YOURFILE.pdf"

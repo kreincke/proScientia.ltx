@@ -1,14 +1,14 @@
 <!--
-% This file is part of proscientia.ltx
-% (c) 2022 Karsten Reincke (https://github.com/kreincke/proscientia.ltx)
+% This file is part of proScientia.ltx
+% (c) 2022 Karsten Reincke (https://github.com/kreincke/proScientia.ltx)
 % It is distributed under the terms of the creative commons license
 % CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
 -->
 
 <p align="center">
-    <a href="https://github.com/kreincke/proscientia.ltx/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/kreincke/proscientia.ltx?style=flat"></a>
-    <a href="https://github.com/kreincke/proscientia.ltx/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/kreincke/proscientia.ltx?style=flat"></a>
-    <a href="https://github.com/kreincke/proscientia.ltx/blob/master/LICENSE" title="License"><img src="https://img.shields.io/badge/License-CC_BY_4.0-blue.svg?style=flat"></a>
+    <a href="https://github.com/kreincke/proScientia.ltx/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/kreincke/proScientia.ltx?style=flat"></a>
+    <a href="https://github.com/kreincke/proScientia.ltx/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/kreincke/proScientia.ltx?style=flat"></a>
+    <a href="https://github.com/kreincke/proScientia.ltx/blob/master/LICENSE" title="License"><img src="https://img.shields.io/badge/License-CC_BY_4.0-blue.svg?style=flat"></a>
 </p>
 
 <p align="center">
@@ -20,14 +20,14 @@
   <a href="#licensing">Licensing</a>
 </p>
 
-***proscientiai.ltx*** offers a set of configuration- and template-files that allow scholars to do humanities research work on the base of *LaTeX*, *BibLaTeX*, *Biber*, and *Jabref*. The visible result of these tools, the respective configuration files and content files follow the style of (German) classical philology, German studies and (German) history.
+***proScientiai.ltx*** offers a set of configuration- and template-files that allow scholars to do humanities research work on the base of *LaTeX*, *BibLaTeX*, *Biber*, and *Jabref*. The visible result of these tools, the respective configuration files and content files follow the style of (German) classical philology, German studies and (German) history.
 
 ## Getting you own usable project directory
 
-For setting up ***proscientia.ltx*** successfully:
+For setting up ***proScientia.ltx*** successfully:
 
-1. Clone the ***proscientia.ltx*** repository `git clone https://github.com/kreincke/proscientia.ltx` (or download and extract the respective tarball)
-2. Open a shell, change into the ***proscientia.ltx*** directory and
+1. Clone the ***proScientia.ltx*** repository `git clone https://github.com/kreincke/proScientia.ltx` (or download and extract the respective tarball)
+2. Open a shell, change into the ***proScientia.ltx*** directory and
    * Select a project identifier *YOURPRJ* that does not contain blanks or slashes
    * execute `chmod 755 bin/collprj.sh`
    * execute `collprj.sh YOURPRJ [de|en]`
@@ -52,10 +52,10 @@ For setting up ***proscientia.ltx*** successfully:
    * copy `extracts/extract.md` to `extract/BIBTEXKEY.md`
    * read and excerpt the secondary literature in the respective file
 3. Do your writing work
-   * edit / update your frame tex file *proscientia.tex*
+   * edit / update your frame tex file *proScientia.tex*
    * create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
    * integrate the snippets by using the LaTeX command `\input{snippets/inc.YOURCHOICE.tex}`
-   * Open a shell and type `make proscientia.pdf` to create a human readable version of your scientific work.
+   * Open a shell and type `make proScientia.pdf` to create a human readable version of your scientific work.
 
 If you want to rename the frame, also update the Makefile.
 
@@ -63,7 +63,7 @@ If you want to see how the writing work can be done and how the result look,  ch
 
 ## Structure
 
-Particularly, ***proscientia.ltx*** contains files
+Particularly, ***proScientia.ltx*** contains files
 * to configure LaTeX and Biber in accordance with the style of the classical philology
   - `cfg/inc.cfg-biber-de.tex`
   - `cfg/inc.cfg-biber-en.tex`
@@ -78,12 +78,12 @@ Particularly, ***proscientia.ltx*** contains files
 * to overwrite automatically applied hyphenations
   - `cfg/inc.babelhyphenations.tex`
 
-Additionally, ***proscientia.ltx*** contains tools to support the process of doing the humanities research work:
+Additionally, ***proScientia.ltx*** contains tools to support the process of doing the humanities research work:
 * `tools/search.tex` manage search words and tables for documenting the search in libraries
 * `tools/verify.tex` allows to verify one set the bibliographic data in different quotation contexts.
 * `tools/demo.tex` takes the abstract bibliographic data (*bib/lit.demo.bib*) and creates a file that showcases all aspects of the (German) classical scholar style.
 
-Finally, ***proscientia.ltx*** contains
+Finally, ***proScientia.ltx*** contains
 * `bib/lit.main.bib` (= stores the bibliographic data of the secondary literature, can be edited by a respectively configured *jabref* or a plain text editor, is integrated into the final text by the command LaTeX-command `\addbibresource`)
 * `bib/lit.demo.bib` (= store the bibliographic data of abstract secondary literature, can be used for learning the type fields, is used by *demo-de.tex* and  *demo-en.tex* for showcasing all aspects of the (German) classical philology style)
 * `bib/lit.verify.bib` (= contains two entries, is used by *verify-de.tex* and  *verify-en.tex* for creating verification contexts)
@@ -95,7 +95,7 @@ Finally, ***proscientia.ltx*** contains
 
 ## Prerequisites
 
-*proscientia.ltx* requires the installation of
+*proScientia.ltx* requires the installation of
 
 * a LaTeX distribution with different packages / programs which should be part of your TeX-Distribution:
   * BibLatex : [https://ctan.org/pkg/biblatex](https://ctan.org/pkg/biblatex)
@@ -111,19 +111,19 @@ We decided to apply _English_ as the primary project language although the inten
 
 ## Contributions
 
-Contributions to *proscientia.ltx* are welcome. Please use the methods of GitHub to do so. But your contributions also have to be licensed under the *CC BY 4.0*.
+Contributions to *proScientia.ltx* are welcome. Please use the methods of GitHub to do so. But your contributions also have to be licensed under the *CC BY 4.0*.
 
 ## Licensing
 
 Copyright (c) 2022 Karsten Reincke
 
-*proscientia.ltx* is distributed under the terms of the [**CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/) license; you may not use this project except in compliance with that license. You are free to ...
+*proScientia.ltx* is distributed under the terms of the [**CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/) license; you may not use this project except in compliance with that license. You are free to ...
 
 * share (= copy and redistribute the material in any medium or format)
 * adapt (= remix, transform, and build upon the material
     for any purpose, even commercially).
 
-*proscientia.ltx* under the following terms:
+*proScientia.ltx* under the following terms:
 
 * You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
@@ -131,13 +131,13 @@ Copyright (c) 2022 Karsten Reincke
 
 ### Clarifications
 
-*proscientia.ltx* is a set of template files and intended to be instantiated and reused in the users own scientific work. Therefore we decide:
+*proScientia.ltx* is a set of template files and intended to be instantiated and reused in the users own scientific work. Therefore we decide:
 
-1. Instantiating *proscientia.ltx* files and reusing them in one's own (scientific) writing project does not make this writing project a derivative work of *proscientia.ltx* (hence: you do not have to mark your modifications in your project directory)  
-2. But if you distribute a modified version of *proscientia.ltx* as a non-instantiated set of templates (as you've got it), you must mark your modifications  
+1. Instantiating *proScientia.ltx* files and reusing them in one's own (scientific) writing project does not make this writing project a derivative work of *proScientia.ltx* (hence: you do not have to mark your modifications in your project directory)  
+2. But if you distribute a modified version of *proScientia.ltx* as a non-instantiated set of templates (as you've got it), you must mark your modifications  
 3. The requirement *to give appropriate credit and provide a link to the license* can be fulfilled by adding a note to your work like this:
-  * Erstellt  auf der Basis des CC-BY-4.0 lizenzierten Tools **proscientia** von K. Reincke © 2022 Repository: [https://github.com/kreincke/proscientia.ltx](https://github.com/kreincke/proscientia.ltx),
+  * Erstellt  auf der Basis des CC-BY-4.0 lizenzierten Tools **proScientia** von K. Reincke © 2022 Repository: [https://github.com/kreincke/proScientia.ltx](https://github.com/kreincke/proScientia.ltx),
 Lizenztext [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
-  * Developed on the base of the CC-BY-4.0 licensed tool **proscientia.ltx** by K. Reincke  © 2022 2022 [
-repository = [https://github.com/kreincke/proscientia.ltx](https://github.com/kreincke/proscientia.ltx),
+  * Developed on the base of the CC-BY-4.0 licensed tool **proScientia.ltx** by K. Reincke  © 2022 2022 [
+repository = [https://github.com/kreincke/proScientia.ltx](https://github.com/kreincke/proScientia.ltx),
 license text = [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/) ]

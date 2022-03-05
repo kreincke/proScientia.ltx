@@ -3,7 +3,7 @@
 DE="de"
 EN="en"
 LANG=${DE}
-CORE="proscientia"
+CORE="proScientia"
 TRASH="trash"
 
 function mhelp {
