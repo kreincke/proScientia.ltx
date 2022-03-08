@@ -107,7 +107,9 @@ Finally, ***proScientia.ltx*** contains
 
 ## Documentation
 
-We decided to apply _English_ as the primary project language although the intended users (= classical scholars) will probably come from German rather than form English speaking countries. There is no designated documentation other than this README. But there is a specific article, called humanities, which shows and explains on the base of its own LaTeX source code, how proScientia works. A readable PDF version of that article is stored in `examples`, the sources are stored in `humanities`. If you want to recompile the PDF version from the sources, open a shell, change into directory `humanities`, and type `make`.
+We decided to apply _English_ as the primary project language although the intended users (= classical scholars) will probably come from German rather than form English speaking countries. There is no designated documentation other than this README.
+
+But there is a specific article, called humanities, which discusses the intended purpose of *proScientia* and explains on the base of its own LaTeX source code, how proScientia works. A readable PDF version of that article is stored in `examples`, the sources are stored in `humanities`. If you want to recompile the PDF version from the sources, open a shell, change into directory `humanities`, and type `make`.
 
 ## Contributions
 
