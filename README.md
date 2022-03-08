@@ -91,7 +91,7 @@ Finally, ***proScientia.ltx*** contains
 )
 * `bib/ncl.journals.tex`(= stores journal specific abbreviations, can be edited by any text editor, is added by the LaTeX command `\input{bib/ncl.journals.tex}`
 * `snippet/inc.snippet-tpl.tex` (= a template for snippets that can be included into the main work)
-* `extracts/extract.md` (= a template for excerpting secondary literature that has already been made known to `bib/literature.bib`   )
+* `extracts/extract.md` (= a template in markdown format for excerpting secondary literature that has already been made known to `bib/literature.bib`   )
 
 ## Prerequisites
 
