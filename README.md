@@ -48,9 +48,9 @@ For setting up ***proScientia.ltx*** successfully:
    * `cd tools && make search.pdf`
    * Do your library research work as you planned it in *tools/search.tex*
    * Incorporate the bibliographic data into *bib/lit.main.bib* by using *jabref* or any other text editor
-   * In case you evaluate a web document download the pdf files under *proofs/BIBTEXKEY.pdf*
+   * In case you evaluate a web (html) document download the document (site, pages) as pdf file(s) and store them under *references/BIBTEXKEY.pdf*
    * copy `extracts/extract.md` to `extract/BIBTEXKEY.md`
-   * read and excerpt the secondary literature in the respective file
+   * read and excerpt/extract the secondary literature in the respective file
 3. Do your writing work
    * edit / update your frame tex file *proScientia.tex*
    * create your snippets by copying *snippets/inc.snippet.tex* to *snippets/inc.YOURCHOICE.tex* and edit the files
@@ -87,11 +87,11 @@ Finally, ***proScientia.ltx*** contains
 * `bib/lit.main.bib` (= stores the bibliographic data of the secondary literature, can be edited by a respectively configured *jabref* or a plain text editor, is integrated into the final text by the command LaTeX-command `\addbibresource`)
 * `bib/lit.demo.bib` (= store the bibliographic data of abstract secondary literature, can be used for learning the type fields, is used by *demo-de.tex* and  *demo-en.tex* for showcasing all aspects of the (German) classical philology style)
 * `bib/lit.verify.bib` (= contains two entries, is used by *verify-de.tex* and  *verify-en.tex* for creating verification contexts)
-* `bib/ncl.abbreviations.tex` (= stores general abbreviations, can be edited by any text editor, is added by the LaTeX command `\input{bib/ncl.abbreviations.tex}`
+* `bib/ncl.abbreviations-de.tex` respectively `bib/ncl.abbreviations-en.tex` (= stores general abbreviations, can be edited by any text editor, is added by the LaTeX command `\input{bib/ncl.abbreviations-[de|en].tex}`
 )
 * `bib/ncl.journals.tex`(= stores journal specific abbreviations, can be edited by any text editor, is added by the LaTeX command `\input{bib/ncl.journals.tex}`
 * `snippet/inc.snippet-tpl.tex` (= a template for snippets that can be included into the main work)
-* `excerpts/excerpt-tpl.tex` (= a template for excerpting secondary literature that has already been made known to `bib/literature.bib`   )
+* `extracts/extract.md` (= a template for excerpting secondary literature that has already been made known to `bib/literature.bib`   )
 
 ## Prerequisites
 

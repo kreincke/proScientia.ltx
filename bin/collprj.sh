@@ -40,7 +40,7 @@ function cpld {
 
 if [ -d ${PID} ]; then rm -rf ${PID}; fi
 
-mkdir -p ${PID}/proofs ${PID}/tools
+mkdir -p ${PID}/references ${PID}/tools
 cp -rd extracts snippets ${PID}
 cp -rd bib  ${PID}/bib
 rm ${PID}/bib/lit.demo.bib ${PID}/bib/lit.test.bib
