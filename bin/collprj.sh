@@ -1,4 +1,9 @@
 #!/bin/bash
+# This file is part of proScientia.ltx
+# (c) 2022 Karsten Reincke (https://github.com/kreincke/proScientia.ltx)
+# It is distributed under the terms of the creative commons license
+# CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
+
 
 DE="de"
 EN="en"
@@ -25,38 +30,18 @@ fi
 
 echo "collecting files for project $PID in language $LANG"
 
-function cpld {
-  DIR=$1
-
-  cp -rd ${DIR} ${PID}/${DIR};
-
-  if [ "${LANG}" == "${EN}" ] ; then
-    rm ${PID}/${DIR}/*-${DE}.tex;
-  else
-    rm ${PID}/${DIR}/*-${EN}.tex;
-  fi;
-
-}
-
 if [ -d ${PID} ]; then rm -rf ${PID}; fi
 
-mkdir -p ${PID}/references ${PID}/tools
-cp -rd extracts snippets ${PID}
-cp -rd bib  ${PID}/bib
-rm ${PID}/bib/lit.demo.bib ${PID}/bib/lit.test.bib
-
-cpld cfg
+mkdir -p ${PID}/references
+cp -rd bib cfg extracts snippets tools ${PID}
 
 if [ "${LANG}" == "${EN}" ] ; then
-  cp ${CORE}-en.tex ${PID}/${CORE}.tex
-  cp tools/verify-en.tex ${PID}/tools/verify.tex
-  cp tools/search-en.tex ${PID}/tools/search.tex
+  find ${PID} -name "*-de.tex" | while read f; do rm $f; done
+  cp proScientia-en.tex ${PID}/proScientia.tex
 else
-  cp ${CORE}-de.tex ${PID}/${CORE}.tex
-  cp tools/verify-de.tex ${PID}/tools/verify.tex
-  cp tools/search-de.tex ${PID}/tools/search.tex
-fi
-cp tools/search-with-catalogs.tex ${PID}/tools/
-cp tools/Makefile.prjtools ${PID}/tools/Makefile
+  find ${PID} -name "*-en.tex" | while read f; do rm $f; done
+  cp proScientia-de.tex ${PID}/${CORE}.tex
+fi;
+
 cat Makefile | sed "s/${CORE}-de.pdf/${CORE}.pdf/" > ${PID}/Makefile
 exit 0;
