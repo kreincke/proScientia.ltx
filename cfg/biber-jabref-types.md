@@ -22,8 +22,8 @@
   - *mandatory*: url;urldate
   - *optional*: author;gender;title;organization;location;date;pubstate
 * **Proceedings**:
-  - *mandatory*: title;editor;gender;location;date;
-  - *optional*: edition;isbn;organization;publisher; volumes;volume;series;number;
+  - *mandatory*: title;editor;gender;location;date;organization;
+  - *optional*: edition;isbn;publisher; volumes;volume;series;number;
 * **Inbook**:
   - *mandatory*: author;gender;title;pages;crossref
   - *optional*:
