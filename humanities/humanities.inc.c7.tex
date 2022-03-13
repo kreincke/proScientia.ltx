@@ -4,14 +4,22 @@
 % are licensed under the terms of the creative commons license CC-BY-SA-4.0
 % (= https://creativecommons.org/licenses/by-sa/4.0/)
 
-\section{Die Lust des freien Austauschs}
+\section{Die Lust am Gendern}
 
-Bliebe noch zu sagen, dass mein Anteil an der skizzierten Lösung im Lesen und Anwenden der Vorarbeit anderer besteht: Auf die Arbeiten von \tit{Dominik Waßenhoven} und auf Bib\LaTeX\ habe ich bereits verwiesen. Außerdem zehre ich immer noch vom \LaTeX-Begleiter\footcite[vgl.][S. 741ff]{MitGoo2005a} und von der Einführung von Helmut Kopka\footcite[vgl.][]{Kopka2000a}: Ohne deren freigiebige Darstellung wüsste und könnte ich heute nicht das, was ich weiß und kann.
+Wikipedia rechnet den \enquote{geschlechterbewussten Sprachgebrauch} dem \emph{Gendern} im Allgemeinen zu\footcite[vgl.][]{Wikipedia2022a} und definiert die \enquote{geschlechtergerechte Sprache} an sich als einen Sprachgebrauch, \enquote{der in Bezug auf Personenbezeichnungen [...] die Gleichstellung der Geschlechter in gesprochener und geschriebener Sprache zum Ausdruck bringen will}.\footcite[vgl.][]{Wikipedia2022b}  Bib\LaTeX\ bietet dazu -- anders als noch Bib\TeX -- endlich auch eine automatisierte Version; ich hatte das Eingangs demonstriert\footnote{s.S. \pageref{Gender}}:
 
-In ähnlichem Sinne befördert hat mich die Tatsache, dass wir es hier mit freier Software zu tun haben: \LaTeX\ ist frei, ebenso Bib\LaTeX, \tit{Jurabib},  \tit{biblatex-dw}, \tit{Koma-Script}, \tit{Texlipse}, das \LaTeX-Plugin für \tit{Eclipse}, der Editor \tit{atom}  und eben \tit{JabRef}. Es ist also eine Frage des Anstands, dass auch ich \textit{proScientia.ltx} frei zugänglich mache:
+Bib\LaTeX\ erlaubt es nämlich, jeden Titel mit dem Tag \ttt{gender} auszustatten. Das Handbuch definiert die Semantik des Feldes als \enquote{das Geschlecht des Autors oder das Geschlecht des Herausgebers, wenn es keinen Autor gibt} und stellt folgende syntaktischen Verfeinerungen über den Wert des Feldes bereit: \enquote{sf (femininer Singular, ein einzelner weiblicher Name), sm (maskuliner Singular, ein einzelner männlicher Name), sn (Neutrum Singular, ein einzelner neutraler Name), pf (femininer Plural, mehrere weibliche Namen), pm (maskuliner Plural, mehrere männliche Namen), pn (Neutrum Plural, mehrere neutrale Namen), pp (Plural, mehrere Namen unterschiedlichen Geschlechts)}.\footcite[vgl.][27]{BibLaTeX2021a} Allerdings benötigt frau dazu noch einen Bibliographiestil, der diese Daten auch auswertet. \emph{biblatex-dw} tut das exezellent. So weit, so klar.
 
-Das Framework \tit{proScientia.ltx}, das die Suche und Evaluation von Sekundärliteratur unterstützen, die Pflege der bibliographischen Daten vereinfachen, die Erstellung dazu passender ’Abstracts’ und ’Extracts’ ermöglichen und das schließlich auch das Schreiben der eigentlichen Arbeit erleichteren soll, ist unter der \tit{Creative Commons 4.0 License} veröffentlicht.\footnote{s. \lnka{http://github.com/kreincke/proScientia.ltx/}}
+Nun stellt sich jedoch die Frage, mit welchem Geschlechter-Kürzel Internetseiten etc. ausgezeichnet werden sollen, die direkt keinen Autor ausweisen, aber sicher einen oder mehrere haben. Naheliegend wäre es, sie als singuläres Neutrum zu markieren (= \ttt{sn}). Das führt aber zu sprachlich hässlichen Auswüchsen: alle Wikipediaseiten würden im Literaturverzeichnis hintereinandergereiht und mit \emph{dass.} für \emph{dasselbe} eröffnet.
 
-Das Dokument jedoch, was Sie gerade lesen, ist -- obwohl auch Teil des Paketes -- davon unabhängig unter der \textit{Creative Commons Attribution-ShareAlike 4.0 Germany License} veröffentlicht.
+Meine bisher beste Lösung dafür ist die:
 
-Damit ist die Sache ganz einfach: auf dem Framework \tit{proScientia.ltx} können Sie ihre eigenen Arbeiten im Rahmen der \tit{CC-BY-4.0}-Lizenz aufsetzen und vertreiben. Wenn sie jedoch an diesem Text über \textit{Über hilfreiche Anmerkungsapparate} weiterarbeiten wollen, geben Sie Ergebnis bitte unter derselben Lizenz weiter.
+\begin{itemize}
+  \item Internetseiten ohne jede Autorinnenangabe zeichne ich je als singuläres Femininum (= \ttt{sf}) aus.
+  \item Internetseiten, von denen ich weiß, dass sie von einer Gruppe erarbeitet werden, dessen Zusammensetzung ich nicht kenne, markiere ich als (= \ttt{pp})
+  \item Internetseiten, die von einer Organisation oder Firma bereitgestellt werden, zeichne ich ebenfalls als singuläres Femininum (= \ttt{sf}) aus.
+\end{itemize}
+
+Bei all diesen Varianten verwende ich \ttt{anon.} für \emph{anonymus}\footnote{respektive \emph{anonyma}} als Autorinnenname und hänge dem -- wo möglich -- in eckigen Klammern den Namen der Organisation oder Firma an. Jeder Wikipedia-Eintrag hätte also bei mir also die Autorin \ttt{anon. [Wikipedia]}. So liest sich das implizit generalisierte generische Femininum in deutschen Texten flüssig, in englischen ist es eh egal.
+
+Allerdings entsteht damit eine nächste Herausforderung: Nun werden alle Werke von anonymen Autorinnen genau der einen \emph{anonyma} zugeordnet und im Literaturverzeichnis hintereinander aufgelistet, jeweils eröffnet mit \emph{dies.} Das heißt, dass alle Internetseiten etc. implizit derselben Autorin zugeschrieben werden. Das ist unschön. Es lässt sich aber wenigestens dadurch entschärfen, dass frau im bib-File nach dem Tag \ttt{author} auch noch das Tag \ttt{sortname = \{Wikipedia\}} verwendet. So würden wenigstens alle Wikipedia-Seiten etc. jeweils gesondert geclustert.
