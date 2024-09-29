@@ -9,7 +9,7 @@ LATEX=pdflatex
 # make [ default | all | filename.pdf ]  [ REL=1.2 ]?
 REL=""
 
-AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log xml bcf
+AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log xml bcf xml nav snm vrb
 RES_EXTS=ps pdf
 
 default:  demo-de.pdf

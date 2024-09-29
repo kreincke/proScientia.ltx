@@ -1,0 +1,303 @@
+% This file is part of proScientia.ltx
+% (c) 2022 Karsten Reincke (https://github.com/kreincke/proScientia.ltx)
+% It is distributed under the terms of the creative commons license
+% CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
+
+\documentclass[]{beamer}
+%\usetheme{EastLansing}
+\usetheme{Madrid}
+%\usetheme{Boadilla}
+%\usetheme{Berkeley}
+\usecolortheme{spruce}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[english,ngerman]{babel}
+
+\usepackage[
+  backend=biber,
+  style=authortitle-dw,
+  sortlocale=auto,
+]{biblatex}
+\input{../cfg/inc.cfg-biber-de.tex}
+\ExecuteBibliographyOptions{annotation=false}
+\renewcommand*{\bibfont}{\fontsize{8}{10}\selectfont}
+\addbibresource{../bib/lit.verify.bib}
+\addbibresource{../bib/lit.main.bib}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+\usepackage[
+  style=german,
+  autostyle=true,
+]{csquotes}
+
+% language specific hyphenation
+\input{../cfg/inc.babelhyphenations.tex}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{../cfg/inc.cfg-ncl-de.tex}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+\addtobeamertemplate{footnote}{\hskip -2em}{}
+
+\title{Titel}
+\subtitle{Untertitel\footnote{\tiny{
+  \textbf{Dieser Text wird unter der \href{https://creativecommons.org/}{XYZ Lizenz} veröffentlicht.}
+\textit{\textrm{Technisch abgeleitet ist er vom \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0} lizenzierten Tool \texttt{\href{https://github.com/kreincke/proScientia.ltx}{proScientia.ltx}}, \copyright{} 2022, Karsten Reincke}}
+  }}}
+\institute{Institute}
+\author{Autor}
+\date{\today}
+
+\usepackage[absolute,overlay]{textpos}
+\newcommand{\mylogo}{
+  \setlength{\TPHorizModule}{11pt}
+  \setlength{\TPVertModule}{11pt}
+   % textblock{}{x,y}: pos(x) = leftUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(30,0.1)
+   \includegraphics[width=25pt,height=25pt]{../img/logo.png}
+  \end{textblock}
+  } 
+\logo{
+  %\includegraphics[scale=0.1]{img/proscientia-logo-160x160.png}
+  \mylogo
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Zitatmarkierung}
+
+\begin{frame}
+  \frametitle{Verifikation Zitatmarkierung}
+  \begin{itemize}
+
+    \item Ein deutschsprachiges \enquote{Inline-Zitat mit \enquote{eingebettetem Zitat}}.
+  
+    \item Deutschsprachiger Satz \foreignquote{german}{with embedded foreign phrase}
+    als eingebettetes Zitat. Erwartetes Resultat: Deutsche Anführungszeichen,
+    weil Teil in einem deutschen Satz.
+
+    \item Autonomes deutsches Zitat in einem insgesamt deutschen Text:
+    \newline \newline
+    \begin{quote}
+      \textrm{\enquote{Dies ist ein deutschsprachiger Absatz, dessen Sätzte zusammen
+      ein wörtliches Zitat bilden.}}
+    \end{quote}
+    erwartetet: Deutsche Anführungszeichen.
+  
+    \item Autonomes englisches Zitat in einem insgesamt deutschen Text:
+    \newline \newline
+    \begin{quote}
+      \textrm{\foreignquote{english}{This shall be an English written paragraph containing
+      a set of sentences which together build the quote.}}
+    \end{quote}
+    erwartetet: Englische Anführungszeichen, weil autonomer Absatz.
+  \end{itemize}
+
+\end{frame}
+
+\section{Zitatquellen}
+\begin{frame}
+  \frametitle{Verifikation: Zitatquellen}
+  \begin{itemize}
+    \item Buch1 (erstverwendungen)\footcite[vgl.][15]{KantKdrV1974}
+    \item ders. ebda.\footcite[vgl.][15]{KantKdrV1974}
+    \item ders. a.a.O.\footcite[vgl.][23]{KantKdrV1974}
+    \item Buch2 (erstverwendung)\footcite[vgl.][15]{KantKdU1974}
+    \item Buch1 (wiederverwendung)\footcite[vgl.][15]{KantKdrV1974}
+  \end{itemize}
+
+\end{frame}
+
+\section{Hauptkapitel}
+\begin{frame}
+  \frametitle{Verifikation: Kapiteleinteilung}
+
+
+      \begin{itemize}
+        \item Hauptkapitel
+        \item Unterkapitel A\subsection{Unterkapitel A}
+        \item {\tiny Unterkapitel B\subsection{Unterkapitel B}}
+      \end{itemize}
+
+\end{frame}
+
+\section{Beamer-Spezialitäten}
+\subsection{Schriften}
+\begin{frame}
+  \frametitle{Schriftgestaltung}
+  \begin{columns}
+    \column{0.4\textwidth}
+      \begin{itemize}
+        \item \textcolor{black}{schwarzer Text normal}
+        \item \textcolor{red}{\textbf{roter Text fett}}
+        \item \textcolor{orange}{\textit{gelber Text italic}}
+      \end{itemize}
+  \column{0.6\textwidth}
+    \tiny Schriftgröße \texttt{tiny}   \\
+    \scriptsize Schriftgröße \texttt{scriptsize} \\ 
+    \footnotesize Schriftgröße \texttt{footnotesize} \\ 
+    \small Schriftgröße \texttt{small} \\ 
+    \normalsize Schriftgröße \texttt{normalsize} \\
+    \large Schriftgröße \texttt{large} \\
+    \Large Schriftgröße \texttt{Large} \\
+    \LARGE Schriftgröße \texttt{LARGE} \\ 
+    \huge Schriftgröße \texttt{huge} \\ 
+    \Huge Schriftgröße \texttt{Huge}
+    \end{columns}
+\end{frame}
+
+\subsection{Listen in Columns}
+\begin{frame}
+  \frametitle{Columns und Listen}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Point A
+      \item Point B
+      \begin{itemize}
+      \item part 1
+      \item part 2
+      \end{itemize}
+      \item Point C
+      \item Point D
+    \end{itemize}
+    \column{0.5\textwidth}
+    \begin{enumerate}[I]
+      \item Point A
+      \item Point B
+      \begin{enumerate}[i]
+      \item part 1
+      \item part 2
+      \end{enumerate}
+      \item Point C
+      \item Point D
+    \end{enumerate}
+  \end{columns}
+\end{frame}
+
+\subsection{Bild neben Text}
+\begin{frame}
+  \frametitle{li. Text und re. Bild}
+  \begin{columns}
+    \column{0.5\textwidth}
+    Beispieltext auf der linken Seite: Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien.
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{../img/proscientia-logo-160x160.png}
+  \end{columns}
+\end{frame}
+
+\subsection{Bild über Text}
+\begin{frame}
+  \frametitle{Bild über Text}
+  \begin{figure}
+    \includegraphics[scale=0.5]{../img/proscientia-logo-160x160.png}
+    \caption{proScientia.ltx}
+  \end{figure}
+
+  Hinter den Wortbergen liegt also ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben.
+\end{frame}
+
+\subsection{Tabelle}
+\begin{frame}
+  \frametitle{Tabelle}
+  \begin{table}
+    \begin{tabular}{l | c | c | c | c }
+    Teilnehmer & Schwimmen & Radfahren & Laufen & Gesamtzeit \\
+    \hline \hline
+    Johann & 13:04 & 24:15 & 18:34 & 55:53 \\ 
+    Detlev & 8:00 & 22:45 & 23:02 & 53:47\\
+    Alexander & 14:00 & 28:00 & n/a & n/a\\
+    Sarah& 9:22 & 21:10 & 24:03 & 54:35 
+    \end{tabular}
+    \caption{Triathlonergebnisse}
+  \end{table}
+\end{frame}
+
+\subsection{Blöcke}
+\begin{frame}
+  \frametitle{Blöcke und Code}
+  \begin{block}{Veränderung}
+    Eines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+  \end{block}
+  \begin{alertblock}{Gefahr}
+    Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli.
+  \end{alertblock}
+  \begin{example}
+    Doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
+  \end{example}
+  \begin{definition}
+    Das meint Mut!
+  \end{definition}
+\end{frame}
+
+\subsection{Code}
+\begin{frame}[fragile]
+  \frametitle{Code und textinterne Links}
+  Nicht vergessen\footnote{Backslashs im Original-Code in der \textit{Semi-Verbatim}-Umgebung verdoppeln!}:
+  \begin{semiverbatim}
+    \\begin\{frame\}
+    \\frametitle\{Outline\}
+    \\tableofcontents
+    \\end\{frame\}
+  \end{semiverbatim}
+
+  oberes Linktarget  
+  \label{oben}
+  \begin{itemize}
+    \item \hyperlink{oben}{\beamergotobutton{oben}}
+    \item \hyperlink{unten}{\beamergotobutton{unten}}
+    \item \hyperlink{oben}{\beamerskipbutton{oben}}
+    \item \hyperlink{unten}{\beamerreturnbutton{unten}}
+  \end{itemize}
+  unteres Linktarget  
+  \label{unten}
+
+\end{frame}
+
+\subsection{Textformate}
+\begin{frame}
+  \frametitle{Textformatierung}
+  \begin{itemize}
+    \item \textbf{Example Text}
+    \item \textit{Example Text}
+    \item \textsl{Example Text}
+    \item \textrm{Example Text}
+    \item \textsf{Example Text}
+    \item \textcolor{orange}{Example Text}
+    \item \alert{Example Text}
+    \item \structure{Example Text}
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Literaturverzeichnis}
+  
+  \printbibliography
+  
+\end{frame}
+
+\section{Inhaltsverzeichnis}
+
+  \begin{frame}
+    \frametitle{Inhaltsverzeichnis}
+    \tableofcontents
+  \end{frame}
+
+\end{document}

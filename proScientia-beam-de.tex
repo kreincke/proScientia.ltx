@@ -1,0 +1,147 @@
+% This file is part of proScientia.ltx
+% (c) 2022 Karsten Reincke (https://github.com/kreincke/proScientia.ltx)
+% It is distributed under the terms of the creative commons license
+% CC-BY-4.0 (= https://creativecommons.org/licenses/by/4.0/)
+
+\documentclass[]{beamer}
+%\usetheme{EastLansing}
+\usetheme{Madrid}
+%\usetheme{Boadilla}
+%\usetheme{Berkeley}
+\usecolortheme{spruce}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[english,ngerman]{babel}
+
+\usepackage[
+  backend=biber,
+  style=authortitle-dw,
+  sortlocale=auto,
+]{biblatex}
+\input{cfg/inc.cfg-biber-de.tex}
+\ExecuteBibliographyOptions{annotation=false}
+\renewcommand*{\bibfont}{\fontsize{8}{10}\selectfont}
+\addbibresource{bib/lit.verify.bib}
+\addbibresource{bib/lit.main.bib}
+
+% package for improving the grey value and the line feed handling
+\usepackage{microtype}
+
+%language specific quoting signs
+\usepackage[
+  style=german,
+  autostyle=true,
+]{csquotes}
+
+% language specific hyphenation
+\input{cfg/inc.babelhyphenations.tex}
+
+%for using label as nameref
+\usepackage{nameref}
+
+%integrate nomenclature
+\input{cfg/inc.cfg-ncl-de.tex}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{bookmarks=true,breaklinks=true,colorlinks=true,citecolor=blue,draft=false}
+
+\addtobeamertemplate{footnote}{\hskip -2em}{}
+
+\title{Titel}
+\subtitle{Untertitel\footnote{\tiny{
+  \textbf{Dieser Text wird unter der \href{https://creativecommons.org/}{XYZ Lizenz} veröffentlicht.}
+\textit{\textrm{Technisch abgeleitet ist er vom \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0} lizenzierten Tool \texttt{\href{https://github.com/kreincke/proScientia.ltx}{proScientia.ltx}}, \copyright{} 2022, Karsten Reincke }}
+  }}}
+\institute{Institute}
+\author{Autor}
+\date{\today}
+
+\usepackage[absolute,overlay]{textpos}
+\newcommand{\mylogo}{
+  \setlength{\TPHorizModule}{11pt}
+  \setlength{\TPVertModule}{11pt}
+   % textblock{}{x,y}: pos(x) = leftUpperCorner + (x * \TPHorizModule), pos(y) = leftUpperCorner - (y * \TPVertModule)
+  \begin{textblock}{1}(30,0.1)
+   \includegraphics[width=25pt,height=25pt]{img/proscientia-logo-160x160.png}
+  \end{textblock}
+  } 
+\logo{
+  %\includegraphics[scale=0.1]{img/proscientia-logo-160x160.png}
+  \mylogo
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Zitatmarkierung}
+
+\begin{frame}
+  \frametitle{Verifikation Zitatmarkierung}
+  \begin{itemize}
+
+    \item Ein deutschsprachiges \enquote{Inline-Zitat mit \enquote{eingebettetem Zitat}}.
+  
+    \item Deutschsprachiger Satz \foreignquote{german}{with embedded foreign phrase}
+    als eingebettetes Zitat. Erwartetes Resultat: Deutsche Anführungszeichen,
+    weil Teil in einem deutschen Satz.
+
+    \item Autonomes deutsches Zitat in einem insgesamt deutschen Text:
+    \newline \newline
+    \begin{quote}
+      \textrm{\enquote{Dies ist ein deutschsprachiger Absatz, dessen Sätzte zusammen
+      ein wörtliches Zitat bilden.}}
+    \end{quote}
+    erwartetet: Deutsche Anführungszeichen.
+  
+    \item Autonomes englisches Zitat in einem insgesamt deutschen Text:
+    \newline \newline
+    \begin{quote}
+      \textrm{\foreignquote{english}{This shall be an English written paragraph containing
+      a set of sentences which together build the quote.}}
+    \end{quote}
+    erwartetet: Englische Anführungszeichen, weil autonomer Absatz.
+  \end{itemize}
+
+\end{frame}
+
+\section{Zitatquellen}
+\begin{frame}
+  \frametitle{Verifikation: Zitatquellen}
+  \begin{itemize}
+    \item Buch1 (erstverwendungen)\footcite[vgl.][15]{KantKdrV1974}
+    \item ders. ebda.\footcite[vgl.][15]{KantKdrV1974}
+    \item ders. a.a.O.\footcite[vgl.][23]{KantKdrV1974}
+    \item Buch2 (erstverwendung)\footcite[vgl.][15]{KantKdU1974}
+    \item Buch1 (wiederverwendung)\footcite[vgl.][15]{KantKdrV1974}
+  \end{itemize}
+
+\end{frame}
+
+\section{Hauptkapitel}
+\begin{frame}
+  \frametitle{Verifikation: Kapiteleinteilung}
+      \begin{itemize}
+        \item Hauptkapitel
+        \item Unterkapitel A\subsection{Unterkapitel A}
+        \item {\tiny Unterkapitel B\subsection{Unterkapitel B}}
+      \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Literaturverzeichnis}
+  \printbibliography
+\end{frame}
+
+\section{Inhaltsverzeichnis}
+
+  \begin{frame}
+    \frametitle{Inhaltsverzeichnis}
+    \tableofcontents
+  \end{frame}
+
+\end{document}

@@ -6,12 +6,12 @@
 #LATEX=latex
 LATEX=pdflatex
 
-AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log bcf xml
+AUX_EXTS=url bbl blg aux dvi toc log lof nlo nls ilg ils ent out log bcf xml nav snm vrb
 RES_EXTS=ps pdf
 
 SUBDIRS=snippets tools
 
-default:  proScientia-de.pdf
+default:  proSciPrint-de.pdf
 
 help:
 	echo "make | make YOURFILE.pdf"
