@@ -33,7 +33,7 @@ echo "collecting files for project $PID in language $LANG"
 if [ -d ${PID} ]; then rm -rf ${PID}; fi
 
 mkdir -p ${PID}/references
-cp -rd bib cfg extracts snippets tools ${PID}
+cp -rd bib cfg extracts snippets tools img ${PID}
 
 if [ "${LANG}" == "${EN}" ] ; then
   find ${PID} -name "*-de.tex" | while read f; do rm $f; done
@@ -41,6 +41,7 @@ if [ "${LANG}" == "${EN}" ] ; then
 else
   find ${PID} -name "*-en.tex" | while read f; do rm $f; done
   cp proScientia-de.tex ${PID}/${CORE}.tex
+  cp proScientia-beam-de.tex ${PID}/${CORE}-beam.tex
 fi;
 
 cat Makefile | sed "s/${CORE}-de.pdf/${CORE}.pdf/" > ${PID}/Makefile
